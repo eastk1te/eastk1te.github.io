@@ -1,0 +1,30 @@
+# hidden files
+.*
+!.git*
+!.editorconfig
+!.nojekyll
+!.husky
+!.commitlintrc.json
+!.versionrc.json
+!.stylelintrc.json
+__description.md
+
+# hidden posts
+/_posts/0000-00-00-Template.md
+/_posts/_text-and-typography.md
+/_posts/_write-a-new-post.md
+/_posts/_getting-started.md
+/_posts/_customize-the-favicon.md
+/_posts/_enable-google-pv.md
+
+# bundler cache
+_site
+vendor
+
+# rubygem
+*.gem
+
+# npm dependencies
+node_modules
+package-lock.json
+Gemfile.lock

@@ -1,0 +1,32 @@
+#  The contact options.
+
+-
+  type: github
+  icon: 'fab fa-github'
+-
+  type: instagram
+  icon: 'fa-brands fa-instagram'
+  url : 'https://www.instagram.com/eastk1te_/'
+-
+  type: email
+  icon: 'fa-brands fa-google'
+  noblank: true            # open link in current tab
+-
+  type: linkedin
+  icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
+  url:  'https://www.linkedin.com/in/dongyeon-kim-6577361ba/'                  # Fill with your Linkedin homepage
+
+# Uncomment and complete the url below to enable more contact options
+# -
+#   type: mastodon
+#   icon: 'fab fa-mastodon'   # icons powered by <https://fontawesome.com/>
+#   url:  ''                  # Fill with your Mastodon account page, rel="me" will be applied for verification
+
+# -
+#   type: stack-overflow
+#   icon: 'fab fa-stack-overflow'
+#   url:  ''                  # Fill with your stackoverflow homepage
+# -
+#   type: rss
+#   icon: 'fas fa-rss'
+#   noblank: true
