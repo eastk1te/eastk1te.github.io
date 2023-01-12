@@ -1,9 +1,9 @@
 ---
 title: Text and Typography
-author: cotes
-date: 2019-08-08 11:33:00 +0900
-categories: [Blogging, Demo]
-tags: [typography]
+author: east
+date: 2022-08-04 00:00:00 +09:00
+categories: [TOP_CATEGORIE, SUB_CATEGORIE]
+tags: [TAGS]
 math: true
 mermaid: true
 ---
