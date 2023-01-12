@@ -17,9 +17,6 @@ __description.md
 /_posts/_customize-the-favicon.md
 /_posts/_enable-google-pv.md
 
-# html-proofer pass를 못함.. 대체 왜?
-/_posts/2022-08-22-git.md
-
 
 # bundler cache
 _site

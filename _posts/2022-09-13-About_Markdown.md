@@ -1,7 +1,7 @@
 ---
 title: Text and Typography
 author: east
-date: 2019-08-08 11:33:00 +09:00
+date: 2022-08-04 00:00:00 +09:00
 categories: [TOP_CATEGORIE, SUB_CATEGORIE]
 tags: [TAGS]
 math: true
