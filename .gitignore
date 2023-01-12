@@ -17,6 +17,10 @@ __description.md
 /_posts/_customize-the-favicon.md
 /_posts/_enable-google-pv.md
 
+/_posts/2022-08-22-git.md
+/_posts/2022-10-06-OOP.md
+
+
 # bundler cache
 _site
 vendor
