@@ -1,33 +1,15 @@
 ---
-title: Text and Typography
+title: About Markdown
 author: east
-date: 2022-08-04 00:00:00 +09:00
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAGS]
+date: 2022-09-13 00:00:00 +09:00
+categories: [CS, Markdown]
+tags: [CS, Markdown]
 math: true
 mermaid: true
 ---
-<!-- ---
-
-layout:     post
-title:      About Markdown
-subtitle:   use lightweight markup language
-date:       2022-09-13
-author:     eastk1te
-header-img: img/markdown.jpg
-catalog: true
-published: true
-use_math: true
-tags:
-    - Markdown
-    - GitBlog
-    - Github
-
---- -->
 
 
-
-> ## Ⅰ. 서론
+> # Ⅰ. 서론
 
 Markdown 이라는 것은 github를 사용하면서 README.md로 처음 접하게 되었다.
 
@@ -53,13 +35,14 @@ github를 사용하는데 있어 .md 파일은 프로젝트의 문서화와 gitb
     
 
 ## ⅲ. Markdown Cheat Sheet
-- ### Line Break
+
+- Line Break
     Line Breaks : two or more space(줄바꿈 space 두 번)  
     Paragraphs : one or more lines(문단바꿈은 enter 두 번)  
     Space : 스페이스바를 많이 눌러도 한 칸으로 표현. (& + nbsp; 사용)
 
 
-- ### Heading  
+- Heading  
     ```markdown
     # Heading {#heading-id}
     ## Heading

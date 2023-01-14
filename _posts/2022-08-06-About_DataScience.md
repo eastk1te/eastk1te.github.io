@@ -1,25 +1,12 @@
 ---
-title: Text and Typography
+title: About Data Science
 author: east
-date: 2022-08-04 00:00:00 +09:00
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAGS]
+date: 2022-08-06 00:00:00 +09:00
+categories: [TIL, Essay]
+tags: [TIL, Essay,DataScience]
 math: true
 mermaid: true
 ---
-<!-- ---
-layout      : post
-title       : 데이터 사이언스에 관하여
-subtitle    : DataScience
-date        : 2022-08-04
-author      : eastk1te
-header-img  : img/home-bg-brick.jpg
-catalog     : true
-published   : true
-tags        :
-    - DataScience
-
---- -->
 
 ## 1. data science의 사전적 정의
 

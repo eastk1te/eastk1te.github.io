@@ -1,25 +1,12 @@
 ---
-title: Text and Typography
+title: 블로그 글을 작성하는 이유
 author: east
-date: 2022-08-04 00:00:00 +09:00
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAGS]
+date: 2022-09-04 00:00:00 +09:00
+categories: [TIL, Essay]
+tags: [TIL, Essay]
 math: true
 mermaid: true
 ---
-<!-- ---
-layout:     post
-title:      블로그 글을 작성하는 이유
-subtitle:   A reason for writing blog contents
-date:       2022-09-04
-author:     eastk1te
-header-img: img/home-bg-brick.jpg
-catalog: true
-published: true
-tags:
-    - Essay
-
---- -->
 
 ## 1. 서론
 

@@ -1,40 +1,13 @@
 ---
-title: Text and Typography
+title: Portfolio
 author: east
-date: 2022-08-04 00:00:00 +09:00
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAGS]
+date: 2022-09-05 00:00:00 +09:00
+categories: [TIL, Essay]
+tags: [TIL, Essay, Portfolio]
 math: true
 mermaid: true
 ---
-<!-- ---
-layout:     Template
-title:      Template
-subtitle:   subtitle
-date:       2000-01-01
-author:     eastk1te
-header-img: img/home-bg-brick.jpg
-catalog: false
-published: false
-tags:
-    - tag1
---- -->
 
-<!-- 양식에 맞춰서 -->
-## 1. 서론
-## 1. 본론
-## 1. 결론
-
-## REFERENCES
-
----
-
-글을 쓰는데 '글쓰기'에만 치중된 글을 지양하자.  
-step by step에 해당하는 글일지라도 마지막에는 나의 생각이 녹아있어야 한다.  
-마지막에 적어도 3번의 퇴고를 진행하자.
-
-
-<!-- 
 포트폴리오
 자신의 실력을 보여줄 수 있는 작품이나 관련 내용 등을 집약한 자료수집철 또는 작품집. 포트폴리오는 서류가방, 자료수집철, 자료 묶음 등을 뜻한다. 자신의 이력이나 경력 또는 실력 등을 알아볼 수 있도록 자신이 과거에 만든 작품이나 관련 내용 등을 모아 놓은 자료철 또는 자료 묶음, 작품집으로, 실기와 관련된 경력증명서
 
@@ -56,4 +29,4 @@ step by step에 해당하는 글일지라도 마지막에는 나의 생각이 �
 
 Kaggle 등수는 실력에 대한 보증수표인가? - https://blog.pabii.co.kr/kaggle-ranking-real-ability/  데이터 사이언티스트를 위한 포트폴리오 만드는 법 : https://databuzz-team.github.io/2018/12/23/how-to-build-a-data-science-portfolio/  
 Advice Portfolio(Jason Goodman)  : https://medium.com/@jasonkgoodman/advice-on-building-data-portfolio-projects-c5f96d8a0627  
--->
+
