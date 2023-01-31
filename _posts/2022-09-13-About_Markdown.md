@@ -2,8 +2,8 @@
 title: About Markdown
 author: east
 date: 2022-09-13 00:00:00 +09:00
-categories: [CS, Markdown]
-tags: [CS, Markdown]
+categories: [Open Source, Markdown]
+tags: [Open Source, Markdown]
 math: true
 mermaid: true
 ---
