@@ -19,6 +19,7 @@ github를 사용하는데 있어 .md 파일은 프로젝트의 문서화와 gitb
 
 > # Ⅱ. 본론
 
+## asd
 
 ## ⅰ. Markdown(마크다운)이란?
 
@@ -34,7 +35,7 @@ github를 사용하는데 있어 .md 파일은 프로젝트의 문서화와 gitb
     `다양한 플랫폼이나 프로그램에서 사용이 가능하다는 점`일 것이다.(특히, Github, Reddit 등)
     
 
-## ⅲ. Markdown Cheat Sheet
+### ⅲ. Markdown Cheat Sheet
 
 - Line Break
     Line Breaks : two or more space(줄바꿈 space 두 번)  
