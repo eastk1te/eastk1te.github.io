@@ -1,6 +1,6 @@
 {% assign enable_toc = false %}
 {% if site.toc and page.toc %}
-  {% if page.content contains '<h2' or page.content contains '<h3' or page.content contains '<h4' %}
+  {% if page.content contains '<h2' or page.content contains '<h3' or page.content contains '<h4' or page.content contains '<h5' or page.content contains '<h6' %}
     {% assign enable_toc = true %}
   {% endif %}
 {% endif %}
@@ -14,10 +14,5 @@
   <nav id="toc" data-toggle="toc"></nav>
 </div>
 
-<script>
-  $(function () {
-    $("toc").toc();
-  });
-</script>
 
 {% endif %}
