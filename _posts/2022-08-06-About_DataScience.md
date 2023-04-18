@@ -1,5 +1,5 @@
 ---
-title: About Data Science
+title: Data Science
 author: east
 date: 2022-08-06 00:00:00 +09:00
 categories: [TIL, Essay]
