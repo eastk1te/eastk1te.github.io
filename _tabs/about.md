@@ -4,53 +4,33 @@ title: Template
 icon: fas fa-info-circle
 order: 4
 ---
+<!-- https://zzetao.github.io/awesome-github-profile/ -->
 
-<!-- 
-### I'm a Student
-- 👀 I’m interested in DataScience
-- 🌱 I’m currently learning Deeplearning
-- 💞️ I’m looking to collaborate on Project for Computer Vision <!-- NLP, Audio Video Processing,
-- 🥅 2023 Goals: Contribute more to Open Source projects
-- 🤣 Fun fact: I love to draw and play guitar / drums 
--->
+### ✨Languages and Tools
 
-### ✨Languages and Tools:
-<div>
-    <div>
-        <img src="https://img.shields.io/badge/OS-ffb86c?style=for-the-badge" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Linux-HIGH-ffb86c?style=for-the-badge&logo=Linux" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Windows-HIGH-ffb86c?style=for-the-badge&logo=windows&logoColor=blue" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Ubuntu-HIGH-ffb86c?style=for-the-badge&logo=Ubuntu" style="height: 20px;">
-    </div>
-    <div>
-        <img src="https://img.shields.io/badge/Language-ffb86c?style=for-the-badge" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Python-HIGH-ffb86c?&style=for-the-badge&logo=Python" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Markdown-HIGH-ffb86c?&style=for-the-badge&logo=markdown" style="height: 20px;">
-    </div>
-    <div>
-        <img src="https://img.shields.io/badge/Framework-ffb86c?style=for-the-badge" style="height: 20px;">
-        <img src="https://img.shields.io/badge/scikit--learn-HIGH-ffb86c?style=for-the-badge&logo=scikit-learn" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Pytorch-MEDIUM-ffb86c?style=for-the-badge&logo=Pytorch" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Tensorflow-MEDIUM-ffb86c?style=for-the-badge&logo=Tensorflow" style="height: 20px;">
-    </div>
-    <div>
-        <img src="https://img.shields.io/badge/DATABASE-ffb86c?style=for-the-badge" style="height: 20px;">
-        <img src="https://img.shields.io/badge/PostgreSQL-MEDIUM-ffb86c?style=for-the-badge&logo=PostgreSQL" style="height: 20px;">
-        <img src="https://img.shields.io/badge/MySQL-MEDIUM-ffb86c?style=for-the-badge&logo=MySQL" style="height: 20px;">
-    </div>
-    <div>
-        <img src="https://img.shields.io/badge/ENV-ffb86c?style=for-the-badge" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Git-HIGH-ffb86c.svg?style=for-the-badge&logo=Git" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Pipenv-HIGH-ffb86c?style=for-the-badge&logo=pypi" style="height: 20px;">
-        <img src="https://img.shields.io/badge/Docker-MEDIUM-ffb86c?style=for-the-badge&logo=Docker" style="height: 20px;">
-    </div>
-    <div>
-        <img src="https://img.shields.io/badge/ETC-ffb86c?style=for-the-badge" style="height: 20px;">
-        <img src="https://img.shields.io/badge/GA4-MEDIUM-ffb86c?style=for-the-badge&logo=google-analytics" style="height: 20px;">
-        <img src="https://img.shields.io/badge/AWS-LOW-ffb86c?style=for-the-badge&logo=amazon-aws&logoColor=orange" style="height: 20px;">
-        <img src="https://img.shields.io/badge/kubernetes-LOW-ffb86c?style=for-the-badge&logo=kubernetes" style="height: 20px;">
-    </div>
-</div>
+![badge](https://img.shields.io/badge/OS-ffb86c?style=for-the-badge)
+![badge](https://img.shields.io/badge/Linux-HIGH-ffb86c?style=for-the-badge&logo=Linux)
+![badge](https://img.shields.io/badge/Windows-HIGH-ffb86c?style=for-the-badge&logo=windows&logoColor=blue)
+![badge](https://img.shields.io/badge/Ubuntu-HIGH-ffb86c?style=for-the-badge&logo=Ubuntu)
+
+![badge](https://img.shields.io/badge/Language-ffb86c?style=for-the-badge)
+![badge](https://img.shields.io/badge/Python-HIGH-ffb86c?&style=for-the-badge&logo=Python)
+![badge](https://img.shields.io/badge/Markdown-HIGH-ffb86c?&style=for-the-badge&logo=markdown)
+![badge](https://img.shields.io/badge/Framework-ffb86c?style=for-the-badge)
+![badge](https://img.shields.io/badge/scikit--learn-HIGH-ffb86c?style=for-the-badge&logo=scikit-learn)
+![badge](https://img.shields.io/badge/Pytorch-MEDIUM-ffb86c?style=for-the-badge&logo=Pytorch)
+![badge](https://img.shields.io/badge/Tensorflow-MEDIUM-ffb86c?style=for-the-badge&logo=Tensorflow)
+![badge](https://img.shields.io/badge/DATABASE-ffb86c?style=for-the-badge)
+![badge](https://img.shields.io/badge/PostgreSQL-MEDIUM-ffb86c?style=for-the-badge&logo=PostgreSQL)
+![badge](https://img.shields.io/badge/MySQL-MEDIUM-ffb86c?style=for-the-badge&logo=MySQL)
+![badge](https://img.shields.io/badge/ENV-ffb86c?style=for-the-badge)
+![badge](https://img.shields.io/badge/Git-HIGH-ffb86c.svg?style=for-the-badge&logo=Git)
+![badge](https://img.shields.io/badge/Pipenv-HIGH-ffb86c?style=for-the-badge&logo=pypi)
+![badge](https://img.shields.io/badge/Docker-MEDIUM-ffb86c?style=for-the-badge&logo=Docker)
+![badge](https://img.shields.io/badge/ETC-ffb86c?style=for-the-badge)
+![badge](https://img.shields.io/badge/GA4-MEDIUM-ffb86c?style=for-the-badge&logo=google-analytics)
+![badge](https://img.shields.io/badge/AWS-LOW-ffb86c?style=for-the-badge&logo=amazon-aws&logoColor=orange)
+![badge](https://img.shields.io/badge/kubernetes-LOW-ffb86c?style=for-the-badge&logo=kubernetes)
 
 ---
 
@@ -77,6 +57,6 @@ order: 4
 
 ---
 
-[website]: https://tjy2202.github.io/
+[website]: https://eastk1te.github.io/
 [instagram]: https://www.instagram.com/eastk1te_
 [linkedin]: https://www.instagram.com/eastk1te_ 
