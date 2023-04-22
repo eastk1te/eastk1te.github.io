@@ -202,3 +202,8 @@ jekyll-archives:
 # Plugins (previously gems:)
 plugins:
   - jemoji
+
+
+# personal setting
+google_ad_client: ca-pub-9795012074769918
+link_image: true

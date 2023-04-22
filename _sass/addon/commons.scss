@@ -29,10 +29,12 @@ html {
 }
 
 body {
-  background: var(--body-bg);
+  background: var(--main-bg);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
+  font-family: $font-family-base;
   line-height: 1.75;
 }
 
@@ -547,6 +549,7 @@ i {
 .img-link {
   color: transparent;
   display: inline-flex;
+  overflow: hidden;
 }
 
 .shimmer {
@@ -1152,10 +1155,7 @@ $sidebar-display: 'sidebar-display';
 #mask {
   display: none;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0 0 0 0;
   height: 100%;
   width: 100%;
   z-index: 1;

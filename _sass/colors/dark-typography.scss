@@ -4,9 +4,8 @@
 
 @mixin dark-scheme {
   /* Framework color */
-  --body-bg: var(--main-bg);
-  --mask-bg: rgb(68, 69, 70);
   --main-bg: rgb(27, 27, 30);
+  --mask-bg: rgb(68, 69, 70);
   --main-border-color: rgb(44, 45, 45);
 
   /* Common color */
@@ -69,7 +68,8 @@
   --btn-share-color: #6c757d;
   --btn-share-hover-color: #bfc1ca;
   --relate-post-date: var(--text-muted-color);
-  --card-bg: rgb(39, 40, 43);
+  --card-bg: #212121;
+  --card-hovor-bg: #3a3a3a;
   --card-border-color: rgb(53, 53, 60);
   --card-box-shadow: var(--main-bg);
   --kbd-wrap-color: #6a6a6a;
