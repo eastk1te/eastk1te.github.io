@@ -2,8 +2,8 @@
 title: Portfolio
 author: east
 date: 2022-09-05 00:00:00 +09:00
-categories: [TIL, Essay]
-tags: [TIL, Essay, Portfolio]
+categories: [ETC, Career]
+tags: []
 math: true
 mermaid: true
 ---

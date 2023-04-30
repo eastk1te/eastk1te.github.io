@@ -3,7 +3,7 @@ title: Naked Statistics
 author: east
 date: 2022-11-09 00:00:00 +09:00
 categories: [Book, Review]
-tags: [Book, Reivew, Statistics, Naked statistics]
+tags: [Statistics]
 math: true
 mermaid: true
 ---

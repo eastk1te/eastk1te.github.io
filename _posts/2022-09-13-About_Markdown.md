@@ -3,7 +3,7 @@ title: About Markdown
 author: east
 date: 2022-09-13 00:00:00 +09:00
 categories: [Open Source, Markdown]
-tags: [Open Source, Markdown]
+tags: []
 math: true
 mermaid: true
 ---

@@ -18,8 +18,6 @@ _*.md
 /_posts/_customize-the-favicon.md
 /_posts/_enable-google-pv.md
 
-/_posts/2023-01-23-데이터 과학자를 위한 인터뷰 문답.md
-
 # bundler cache
 _site
 vendor
