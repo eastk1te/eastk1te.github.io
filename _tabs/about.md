@@ -150,3 +150,5 @@ order: 1
 [website]: https://eastk1te.github.io/
 [instagram]: https://www.instagram.com/eastk1te_
 [linkedin]: https://www.instagram.com/eastk1te_ 
+
+<!-- notion, VSC, slack 등 추가? -->
