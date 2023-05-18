@@ -22,7 +22,7 @@ order: 1
 
 `스타트업에서 추천시스템 서비스를 개발/배포하였습니다.` 주로 데이터 관련 업무를 담당했으며 작은 규모의 스타트업으로 관련 업무와 필요 기술을 혼자 정리하고 책임졌던 경험이 있습니다. 또한, 해당 과정에서 팀의 역량은 팀원들간의 긴밀한 의사소통이 있을때 비로소 발휘된다고 생각하여 적극적인 질의와 논의를 통한 커뮤니케이션을 거쳐 협업을 진행하였습니다.
 
-문제를 발견하고 효율적으로 해결하는 과정을 좋아합니다.` 특정 시스템을 배포하는 과정에서 메모리 사용량을 80% 이상 줄여본 경험이 있습니다. 그리고 논리적인 사고를 지향하여 가설검정,인과추론과 더불어 DevOps분야를 실무에 적용 해보고 싶습니다.
+`문제를 발견하고 효율적으로 해결하는 과정을 좋아합니다.` 특정 시스템을 배포하는 과정에서 메모리 사용량을 80% 이상 줄여본 경험이 있습니다. 그리고 논리적인 사고를 지향하여 가설검정,인과추론과 더불어 DevOps분야를 실무에 적용 해보고 싶습니다.
 
 --- 
 
@@ -146,6 +146,8 @@ order: 1
 [<img align="left" alt="Instagram | Instagram" width="40px" src="https://user-images.githubusercontent.com/77319450/233571483-4b4100e6-3f65-4fbc-b530-872a7bc7472c.png" />][instagram]
 
 ---
+
+<script src="https://gist.github.com/eastk1te/84ee96b155a61228ca6ce81f1f7d87d0.js"></script>
 
 [website]: https://eastk1te.github.io/
 [instagram]: https://www.instagram.com/eastk1te_
