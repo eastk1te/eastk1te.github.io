@@ -147,8 +147,6 @@ order: 1
 
 ---
 
-<script src="https://gist.github.com/eastk1te/84ee96b155a61228ca6ce81f1f7d87d0.js"></script>
-
 [website]: https://eastk1te.github.io/
 [instagram]: https://www.instagram.com/eastk1te_
 [linkedin]: https://www.instagram.com/eastk1te_ 

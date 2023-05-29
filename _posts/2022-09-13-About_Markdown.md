@@ -412,6 +412,15 @@ Different than using a [WYSIWYG(What You See Is What You Get)][1]
         $$\begin{vmatrix} 1 & 2 \\ 3 & 4 \end{vmatrix}$$
         $$\begin{Vmatrix} 1 & 2 \\ 3 & 4 \end{Vmatrix}$$
 
+> Update. 분수 표기법(23.05.29)
+{: .prompt-info }
+
+```markdown
+$\frac{1+s}{s(s+2)}$
+```
+
+$\frac{1+s}{s(s+2)}$
+
 > # Ⅴ. 결론
 
 Markdown은 결국 꾸미기 보다는 글쓰는 것 자체에 중점을 두는 언어이다. 
