@@ -28,8 +28,14 @@ mermaid: true
 - 감성 분석(Sentiment Analysis): 텍스트에서 긍정적, 부정적 또는 중립적인 감성을 추출하고 분류하는 작업입니다.
 - 기계 번역(Machine Translation): 한 언어의 텍스트를 다른 언어로 자동으로 번역하는 기술입니다.
 
+NLG 태스크는 본질적으로 확률적인 작업에 기반한다
+predict the next word in a sequence given the words
+P(appe and pair salad) => P(pair | apple and)
 
+RNN based language modeling
 
+image captioning이란?
+: 컴퓨터 비전과 자연어 처리를 결합한 기술로, 이미지에 대한 설명을 자동으로 생성하는 작업입니다. 자세한 내용은 [Convolutional Neural Networks for Visual recognition(2017)](http://cs231n.stanford.edu/2017/index.html) 에서 확인 가능합니다.
 
 > ## Ⅰ. Name.
 
