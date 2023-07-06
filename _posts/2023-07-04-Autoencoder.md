@@ -125,6 +125,16 @@ _출처 : https://www.slideshare.net/NaverEngineering/ss-96581209_
 
 따라서, 오토인코더는 input 데이터의 feature를 추출하는 차원 축소 기법이나 network parameter 초기화, 사전학습 등에 많이 사용됩니다. 이때는 batch-norm, xavier initialization과 같은 기법이 없었다고 합니다.
 
+오토인코더는 두가지 유형의 구조가 존재합니다.
+
+- #### Undercomplete AutoEncoder
+  
+  은닉층의 뉴런 수가 입력층 및 출력층 보다 작은 구조로 압축된 표현을 학습하여 원본의 특성을 보존하면서 데이터의 차원을 축소에 유용합니다.
+
+- #### Overcomplete AutoEncoder
+  
+  은닉층의 뉴런 수가 입력층 및 출력층 보다 큰 구조로 인공신경망이 데이터의 압축된 표현을 찾지 못하고 단순히 입력을 복사하는 일명 identity function을 학습할 수 있습니다. 이는 여러 변수들로 구성된 지수
+
 오토인코더 구조는 아래와 같은 세 부분으로 구성됩니다.
 
 ![img](https://github.com/eastk1te/P.T/assets/77319450/06fddeb7-8ffe-44d9-8896-6fa046a761f6)
@@ -177,3 +187,178 @@ Cross-Entropy가 MSE보다 더 나은 결과를 제공하는 이유
 > ### ⅵ. Stacking AutoEncoder for pre-training
 
 우리는 이제 어떻게 하면 좀 더 잘 학습시키는가? 라는 질문에 도달 한다. 오토인코더는 적어도 입력값에 대해서는 복원을 잘한다는 특징을 활용해 학습 데이터 셋에 있는 입력 데이터를 잘 표현하는 가중치를 학습시킬 수 있습니다. 따라서, 오토인코더를 Stack의 형태로 쌓아 올려 더 깊은 층을 만드는 것을 Stacked AutoEncoder라고 하며, 이는 우리가 앞서 배운 [DBN](../RBM/#ⅱ-dbndeep-belief-net)의 형태와 유사합니다. 이러한 작업이 끝난 후 추상적인 특성들을 fine-tuning하면 깊은 뉴럴 네트워크를 훈련시킬 수 있을 것이라는 생각이 오늘날의 딥러닝 알고리즘을 있게 했습니다.
+
+> ### ⅶ. DAE(Denosing AE)
+
+DAE는 복원 능력을 더 강화하기 위해 기본적인 AE의 학습 방법을 조금 변형한 것입니다.
+
+핵심 논문은 "Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion"입니다. 이 논문은 2010년 JMLR(Journal of Machine Learning Research)에 발표되었습니다. 
+
+![1](https://github.com/eastk1te/P.T/assets/77319450/be4956c4-c034-459e-babf-a84ddbba2937)
+_Figure 1 : x = input data,  $\tilde{x}$ = noise가 추가된 데이터, $h(\cdot)$ = Encoder, z = latent vector ,$g(\cdot)$ = Decoder, Loss = $L(x,y)$로 노이즈가 포함된 데이터가 아닌 원본 데이터와 출력 값으로 계산._
+
+잡음이 없는 원 데이터 x에 잡을을 가하여 잡음이 있는 데이터 $\tilde{x}$를 만들어 냅니다. 그 후 잡음이 있는 데이터를 가하여 출력 y가 잡음이 있는 영상$\tilde{x}$가 아닌 원 영상 x에 가까워지도록 학습을 시킵니다.
+
+즉, DAE는 노이즈가 있는 입력 데이터를 받아서 원래의 깨끗한 입력 데이터를 복원하는 능력을 활용합니다. 이렇게 DAE는 지역적인 잡음 제거 기준을 사용하여 노이즈가 있는 입력의 특성 표현을 효과적으로 압축하고 복원하는 강인한 표현력을 갖게 됩니다.
+
+![manifold관점](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/12056786-1b8e-45b9-a0a9-eabd13484073)
+_Figure 2 : Manifold learning의 관점에서 원 데이터는 저차원 공간인 실선에 가깝지만 노이즈를 추가한 데이터는 실선에 멀어집니다. 따라서 모델은 노이즈를 추가한 데이터를 실선에 "Project"하는 방향으로 학습됩니다._
+
+
+논문에서는 잡음이 없는 경우보다 잡음의 비율이 높아질 수록 필터는 local한 특징보다 global한 특징을 추출하게 된다는 것이 나왔는데, 잡음이 많아지면서 DAE의 학습과정이 결과적으로 분명한 특징을 학습하도록 만들어주는 것으로 해석된다고 합니다.
+
+
+> ### ⅷ. Sparse Autoencoder
+
+Sparse Autoencoder (SAE)에 대한 개념과 아이디어는 여러 연구자들에 의해 개발되었지만, Andrew Ng의 "Sparse Autoencoder" 논문에서 상세하게 설명되었습니다. SAE는 입력 데이터의 희소 표현을 학습하기 위해 훈련하는 인공신경망입니다. 이를 위해 희소성 패널티를 추가하여 학습 중에 많은 히든 유닛이 활성화되지 않고 소수의 유닛만 활성화되도록 유도합니다. 이러한 과정을 통해, 중요한 정보가 더 간결하게 압축된 표현으로 학습됩니다.
+
+$$L(\theta) = MSE(x,y) + \lambda * \sum_{j=1}^{D_y}KL(\rho || \hat{\rho}_j )$$
+
+- $x$ : 입력 데이터
+- $y$ : 재구성된 출력
+- $MSE(x,y)$ : 재구성 손실함수로 목적에 따라 CE등으로 변경될 수 있지만 기본적으로 Mean Squared Error(MSE)를 사용합니다. 
+- $\lambda$ : 희소성 규제 항 가중치
+- $\rho$ : 희소성 목표 파라미터로 뉴런이 활성화되는 정도를 제어하는 역할을 합니다.(일반적으로 0과 1 사이의 작은 값으로 설정)
+- $\hat{\rho}_j$ : 중간층 unit의 평균 활성도의 추정치이다.
+- $\sum_{j=1}^{D_y}KL(\rho\|\|\hat{\rho}_j)$ : 
+  
+  희소성 규제 항$$_{Sparsity-Regularization-Term}$$으로서, L1 규제 또는 KLD$$_{Kullback-Leibler-divergence}$$ 등을 사용하여 정의됩니다. 이 항은 재구성 손실에 추가되어 희소성을 강조하고, 희소성 목표($\rho$)에 비해 실제 활성화 정도와의 차이를 계산합니다. 만약 둘의 분포가 같다면 KL값은 0이 되고, 다르면 0보다 큰 값을 갖게 된다. 
+  
+  이를 통해 재구성 손실과 희소성 규제 항을 최적화함으로써, 입력 데이터를 효과적으로 재구성하는 모델을 학습할 수 있습니다.
+
+Kullback-Leibler-divergence(KLD)이란?
+: 두 확률분포 간의 차이를 측정하는 지표입니다. 흔히 정보 이론에서 사용되며, 상대 엔트로피(relative entropy)라고도 부릅니다. KLD는 두 확률분포 사이의 정보 손실을 나타내는 값으로, 한 확률분포가 다른 확률분포를 얼마나 잘 설명하는지를 계산합니다. 수학적으로, 두 확률분포 P와 Q에 대해 P(x)와 Q(x)는 각각 x에 상응하는 확률을 나타내고 다음과 같이 정의됩니다. $KLD(P \|\| Q) = ∑ P(x) * log(P(x) / Q(x))$. KLD는 양의 값이며, 두 확률분포가 동일할 경우 0이 됩니다. KLD는 비대칭$$_{asymmetric}$$인지라, $KLD(P \|\| Q)$와 $KLD(Q \|\| P)$의 값이 다릅니다.
+
+> #### 학습하기도 바쁜데, 왜 이러한 행동을 해야 할까요?!
+
+학습 과정에서 뉴런들에게 특정한 작업을 수행하도록 지시하는 것은 매우 중요한데, 그 이유는 뉴런의 활성화가 주요한 목표 예측에 도움이 되는 중요한 정보를 제공하기 때문입니다. 기본적으로, 우리는 뉴런들에게 특별한 역할을 부여함으로써, 그들이 학습 과정에서 효과적으로 참여하고 도움이 되도록 유도하고 있습니다. 이렇게 함으로써, 학습하는 동안 모델이 지식을 보다 정교하게 표현할 수 있게 됩니다.
+
+이를 확인하는 한 가지 방법은 ρ로 정의된 Sparsity 파라미터를 사용하는 것이다.
+
+우리는 ρ이 0이 되기를 원합니다. 따라서, $\rho_I$값이 $\rho$와 비슷해야 하므로 희소성 규제 항을 KLD를 활용하여 계산합니다.
+
+뉴런이 몇 번이나 활성화된 지를 어떻게 측정할 수 있는가? 다음 방정식을 통해 계산할 수 있다.
+
+$$\sum_{j=1}^{D_y}KL(\rho \|\| \hat{\rho}_j ) = \sum_{j=1}^{D_y}\rho log(\frac{\rho}{\rho_j}) + (1-\rho)log(\frac{(1-\rho)}{(1-\rho_I)})$$
+
+$$where, \rho_I = \sum(\sigma(X_i) / m)$$
+
+여기서 $\rho_I$는 모든 뉴런들을 합쳐 평균을 얻은 것이라고 하고 $\sigma(\cdot)$는 activation function을 나태내고, $\sigma(\cdot)$가 양수라면 활성화 된 것 입니다. 우리는 이 항이 $\rho$에 의해 주어진 sparsity 매개변수와 최대한 같기를 원합니다.
+
+이렇게 Sparse AutoEncoder를 통해 sparse 한 노드(0 이 많은)들을 만들고, 그 중에서 0과 가까운 값들은 전부 0으로 보내버리고 0 이 아닌값들만 사용하여 네트워크 학습을 진행합니다. 조금 더 직관적으로는 대부분의 시간 동안 뉴런들이 활동하지 못하게 하는 것입니다. 이는 규제 기법을 통해 coding층의 훈련시마다 뉴런 개수를 제한함으로서 각 뉴런들이 더 유용한 특성을 학습하여 coding을 만들어 낼 수 있도록 하는 기법입니다. 예를들어 dropout에서 일부 뉴런을 의도적으로 훈련에서 누락시켜 나머지 뉴런들이 더 유용한 특성을 학습하도록 하게 만드는 것과 비슷합니다.
+
+
+
+> ### ⅸ. CAE(Contractive AE)
+
+주요 논문은 "Contractive Auto-Encoders: Explicit Invariance During Feature Extraction" 입니다. 이 논문은 2011년 International Conference on Machine learning (ICML)에 발표되었습니다. CAE의 목적 함수는 정규화 항을 추가함으로써 모델이 작은 변화를 무시하는 표현을 학습하는 데 초점을 맞춥니다. 또한, 본 논문은 수많은 실험을 통해 CAE가 입력 공간에서의 전이에 불변하는 표현을 학습한다는 것을 입증합니다. 따라서 원본 데이터에 대해 민감하지 않은 견고한 피쳐를 추출하는 데 어떻게 사용할 수 있는지에 대해 설명하였습니다. 
+
+
+![2](https://github.com/eastk1te/P.T/assets/77319450/f53f71de-e48f-492f-b884-affd00b911e1)
+
+
+CAE는 DAE와 같이 작은 변화에 강건한 모델을 학습하는 것이 목적으로 Encoder가 입력 데이터의 작은 변화에 저항하도록 하는데 중점을 두고 있습니다. 즉, 인코더가 디코더에서 재구성할때 자코비안 행렬을 손실함수에 추가하여 중요하지 않은 입력의 변화를 무시하도록 하여 특징을 추출할때 작은변화에 덜민감하도록 중점을 둔다는 의미입니다.
+
+$$argmin_{enc,dec}E[loss(x,dec\cdot enc(x)] + \lambda||\nabla_xenc(x)||_2^2$$
+
+$$L(\theta) = R(x, g(f(x))) + \lambda \cdot C(x, h, J)$$
+- $L(\theta)$: 전체 손실 함수
+- $x$: 입력 데이터
+- $g(h(x))$ : 재구성 에러로 인코딩 후 디코딩된 재구성 데이터 
+- $R(x, g(f(x)))$ : 재구성 손실 (예: 평균 제곱 오차(MSE) 또는 교차 엔트로피)
+- $\lambda$: 하이퍼 파라미터로 입력과 재구성의 민감도를 조절하는 가중치를 설정합니다.
+- $C(x, h, J)$ : 
+  
+  목적 함수의 최적화 과정 중 입력 데이터와 재구성에 관한 민감도를 제한하는 컨트랙티브 손실 항$$_{Contractive-Regularization}$$입니다. $J$는 입력 데이터에 따라 인코더 출력의 변화를 설명하는 야코비안 행렬이며 $h$는 인코딩 된 표현입니다. 해당 항은 feature space가 훈련 데이터의 이웃으로 수렴하도록 매핑을 격려한다.
+  
+  ![3](https://github.com/eastk1te/P.T/assets/77319450/9033acf2-8c77-4a7e-8265-5b4ddbcc9586)
+  _출처 : https://www.slideshare.net/NaverEngineering/ss-96581209_
+
+  종종 이 항을 $||J||^2_F$으로 표현하며, 여기서 $||\cdot||_F$는 프로베니우스 노름(Frobenius norm)입니다.
+
+  ![CAE](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/2483671d-6c4b-46a9-b74e-fa0c71b98e0d)
+  _출처 : http://dmqm.korea.ac.kr/uploads/seminar/DMQAseminar_210813.pdf_
+
+  대부분의 원본 데이터 입력 변화에 따른 방향에 대하여 표현이 지역적으로 불변하는 것을 장점으로 가지고 있다.
+
+> ## Ⅵ. VAE(Variational-AutoEncoder)
+
+우선 VAE는 2013년에 작성된 "Auto-Encoding Variational Bayes"에서 이 개념이 소개되었으며 Generative modeling으로써 오토인코더 정의와 다르게 생성모델을 학습하는 과정에서 모델의 구조가 오토인코더와 유사합니다. 따라서 VAE는 AE와는 기원이 다르며 이름과 구조가 비슷하여 혼당하기 쉬움을 인지해야합니다.
+
+VAE는 Input X를 잘 설명하는 feature를 추출하여 Latent vector z에 담고, 이 Latent vector z를 통해 X와 유사하지만 완전히 새로운 데이터를 생성하는 것을 목표로 합니다. 이때 각 feature가 가우시안 분포를 따른다고 가정하고 latent z는 각 feature의 평균과 분산값을 나타냅니다. 즉, 하나의 숫자로 나타내는 것이 아니라 가우시안 확률분포에 기반한 확률값으로 나타낸다.
+
+$$p_{\theta}(x|z) \space where, z \sim (\mu, \sigma^2)$$
+
+![VAE](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/aa70628f-6043-48ad-8d85-0b09ed846b02)
+_Figure 1 : VAE와 AE의 latent space를 시각화해보면 차이를 발견할 수있다._
+
+> ### ⅰ.학습
+
+
+VAE의 학습 목표는 원본 데이터 x와 생성된 데이터 $g(h(x))$간의 차이를 최소화하는 것입니다. 즉, 변분 추론(Variational Inference)을 사용하여 모델 파라미터를 최적화합니다. 
+
+$$\underset{\theta}{argmax} \space p_{\theta}(x) = \int p_\theta(z)p_\theta (x|z)dz$$
+
+손실함수는 아래와 같이 두가지 항목으로 구성됩니다. 이 두 손실함수 항목을 최소화하여 VAE를 업데이트하고 최적화합니다.
+
+$$L(x^i, \theta , \phi) = - E_z[logp_\theta (x^i|z)] + D_{KL}(q_\phi(z|x^i)||p_\theta (z))$$
+
+$E_z[logp_\theta (x^i\|z)]$ 는 복원 손실((reconstruct error))로 입력값과 출력값의 차이이고, $D_{KL}(q_\phi(z|x^i)||p_\theta (z))$는 KLD 손실로 인코더의 출력 중 평균 및 분산과 사전 정의된 확률분포(ex. 가우시안 분포) 간의 차이를 측정하는 항목으로 잠재 공간에서의 생성된 사후확률분포에 근접하게 만들어야합니다.
+
+
+> ### ⅱ. CVAE(Conditional VAE)
+
+이름에서 알 수 있듯이 조건을 부여합니다.
+
+앞서 나온 VAE에서는 latent space가 임의로 sampling되면서 어떤 숫자가 샘플링될지 제어할수없었습니다. 하지만 CVAE의 핵심 아이디어로 인코더와 디코더에 조건 정보(일반적으로 원핫 벡터나 해당하는 특성 벡터)를 포함시키면 인코더와 디코더 모두 원하는 특성에 따라 데이터를 생성할 수 있습니다.
+
+![4](https://github.com/eastk1te/P.T/assets/77319450/39aa257b-263a-4d15-a73c-c30c5f145aa6)
+_Figure 2 : CVAE에서 label 정보를 알고있으면 Encoder와 Decoder에 적용하는 구조(M2)_
+
+![5](https://github.com/eastk1te/P.T/assets/77319450/7059e85a-1208-4482-aabd-e21747b17326)
+_Figure 3 : Figure 2에서 식을 풀어보면 ELBO$_{Evidence Lower Bound}식이 똑같이 유지됨을 보여$_
+
+![6](https://github.com/eastk1te/P.T/assets/77319450/dce942ce-238f-46c6-896f-773df2c0a1aa)
+_Figure 4 : Label을 모르는 Unsupervise learning에 대한 구조들로 좌 :  y를 추정하는 맨 좌측의 네트워크를 구성하는 M2 구조, 우 : 인코더로 학습 한 이후 y를 추정하는 구조를 따로 만드는 M3구_
+
+> ### ⅲ. AAE(Adversarial AE)
+
+오토인코더와 생성적 적대 신경망(GAN)의 개념을 결합한 생성 모델입니다. AAE는 효율적인 특성 추출과 샘플 생성을 목표로 하는 비지도 학습 방법입니다. 
+
+AAE의 핵심 아이디어는 잠재 변수의 사전 확률 분포와 근사 사후 확률 분포 간의 약점을 극복하고, 적대적 학습을 사용하여 잠재 공간의 더 정교한 사후 분포를 학습하는 것입니다. 
+
+![7](https://github.com/eastk1te/P.T/assets/77319450/36058c52-02c0-40a3-9706-caf2f9c1be1b)
+_Figure 5 : KLD부분이 sample들의 분포가 target의 분포와 같아지게 만드는 GAN과 유사하다. 따라서, KLD대신 GAN Loss를 사요하면 임의의 함수에 대해서도 가능하다는 것을 나타냄._
+
+![8](https://github.com/eastk1te/P.T/assets/77319450/961e8dc2-060d-4ffb-bc78-847f6ac9621f)
+_Figure 6 : Autoencoder에서 Encoder 부분이 Generator 역할로 가짜 샘플을 만들어내고, Target 분포에서 진짜 샘플을 넣고 판별을 하면서 학습을 진행함._
+
+오토인코더의 잠재 변수 z에 생성자 함수를 적용하여, 원하는 특성을 포함하는 새로운 데이터를 생성합니다. 판별자는 생성된 데이터와 실제 데이터를 구별하려고 시도하며, 이 과정에서 오토인코더의 성능이 개선됩니다. 
+
+![9](https://github.com/eastk1te/P.T/assets/77319450/21c4790a-ba48-4493-b91d-1d6039fee9af)
+_Figure 7 : VAE에서의 KLD 항을 사용하지않고, GAN Loss를 대신 사용하여 나타낸 식._
+
+![10](https://github.com/eastk1te/P.T/assets/77319450/0519357d-4072-4298-8ae6-ebf9a6ee5ec3)
+_Figure 8 : GAN은 생성자와 판별자의 목적이 달라 따로 학습을 시킨다. 따라서 AAE에서도 위 세개의 부분을 번갈아가면서 학습시킨다._
+
+AAE는 다양한 종류의 데이터(이미지, 텍스트, 음성 등)에 사용할 수 있으며, 특성 학습과 데이터 생성 작업에 특히 효과적입니다. 또한, 풍부한 생성 콘텐트를 만드는 데 사용되거나 GAN과 함께 사용되어 더 정밀한 생성 결과를 도출할 수 있습니다.
+
+
+> ## Ⅶ. REFERENCES
+
+1. [AutoEncoder의 모든것](https://deepinsight.tistory.com/126)
+2. [VAE vs AE](https://bcho.tistory.com/1326)
+3. [오토인코더 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2020/10/10/autoencoder.html)
+4. [오토인코더 자료 모음](https://subinium.github.io/VAE-AE/#1-%EC%98%A4%ED%86%A0%EC%9D%B8%EC%BD%94%EB%8D%94%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83)
+5. [오토인코더의 모든것 - Naver Tech](https://d2.naver.com/news/0956269)
+6. ["Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion"](https://www.jmlr.org/papers/volume11/vincent10a/vincent10a.pdf)
+7. [CAE - DMQA open seminar](http://dmqm.korea.ac.kr/activity/seminar/330)
+8. ["Contractive Auto-Encoders: Explicit Invariance During Feature Extraction"](https://icml.cc/2011/papers/455_icmlpaper.pdf)
+9.  [VAE - wikidocs](https://wikidocs.net/152474)
+10. ["Sparse Autoencoder", Andrew Ng](https://web.stanford.edu/class/cs294a/sparseAutoencoder.pdf)
+11. [Sparse Autoencoder - 대소기의 블로구](https://soki.tistory.com/64)
+12. [여러가지 구조의 Autoencoders](https://data-newbie.tistory.com/180)
+13. [CVAE](https://chickencat-jjanga.tistory.com/4)
+
+<br><br>
+---
