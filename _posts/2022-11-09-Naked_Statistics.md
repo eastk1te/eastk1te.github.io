@@ -2,7 +2,7 @@
 title: '[도서]Naked Statistics'
 author: east
 date: 2022-11-09 00:00:00 +09:00
-categories: [Book, Review]
+categories: [ETC, BOOK_REVIEW]
 tags: [Statistics]
 math: true
 mermaid: true

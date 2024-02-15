@@ -9,6 +9,7 @@
 !.stylelintrc.json
 __description.md
 _*.md
+qqq_*
 
 # hidden posts
 /_posts/_Template.md
