@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 
 title: Eastk1te                          # the main title
 
-tagline: Immersive Data Columbus   # it will display as the sub-title
+tagline: Flow-Loving Developer   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.

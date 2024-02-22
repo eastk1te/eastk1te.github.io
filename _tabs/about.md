@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-title: 몰입하는 데이터 콜롬버스
+title: KIM Dong-Yeon
 icon: fas fa-info-circle
 order: 1
 ---
@@ -11,7 +11,7 @@ order: 1
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/77319450/233773775-f34b9d4f-3c1c-4be7-9c0f-11665128f0d3.jpg" width="70%" alt="My Image">
-  <em><p><i>안녕하세요! :smile: 집중을 즐기는 개발자 김동연입니다.</i></p></em>
+  <em><p><i>안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰입하는 것을 즐기는 김동연입니다.</i></p></em>
 </div>
 
 
@@ -26,33 +26,27 @@ order: 1
 
 --- 
 
-### :mortar_board:Eucation
-
 <style>
   alpha {
     opacity: 0.5; /* 투명도(0~1) 설정 */
   }
 </style>
 
+### :mortar_board:Eucation
+
 <table style>
   <tbody style='background:none;border:0px;text-align: left; vertical-align: top;'>
     <!--  -->
     <tr style='background:none;'>
-      <td><a href='https://eastk1te.github.io/posts/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B8%B0%EC%88%A0%EC%9D%B8%EC%9E%AC%EA%B3%BC%EC%A0%95/'> 빅데이터 인공지능 <br> 창의융합 인재양성과정</a> <br><alpha> 2020.06 ~ 2020.12 </alpha></td>
+      <td> 빅데이터 인공지능 <br> 창의융합 인재양성과정 <br><alpha> 2020.06 ~ 2020.12 </alpha></td>
       <td  style="padding-right: 0px;">•</td>
-      <td> 기술인재과정 수료. <br> Python 기반 빅데이터 처리/분석 및 머신러닝 기술 교육. </td>
-    </tr>
-    <!--  -->
-    <tr style='background:none;'>
-      <td> SAS Viya를 활용한 <br> Enterprise 분석 활용 과정 <br><alpha> 2021.01 ~ 2021.01 </alpha></td>
-      <td  style="padding-right: 0px;">•</td>
-      <td> SAS Viya를 활용하여 데이터 전처리/분석 및 모델 구성 교육. </td>
+      <td> 80일간의 기술인재과정 수료. <br> Python 기초 및 빅데이터 처리/분석, 머신러닝 기술(자연어, 오디오, 이미지) 교육. </td>
     </tr>
     <!--  -->
     <tr style='background:none;'>
       <td>중소기업 빅데이터 <br> 인재양성과정 <br> <alpha> 2021.08 ~ 2021.12 </alpha></td>
       <td  style="padding-right: 0px;">•</td>
-      <td> 전문가과정 수료. <br> 문제 해결 기반의 실전 특화 교육.</td>
+      <td> 80일간의 전문가과정 수료. <br> MLOps 및 딥러닝 심화 과정, 문제 해결 기반의 실전 특화 교육 진행.</td>
     </tr>
     <!--  -->
     <tr style='background:none;'>
@@ -76,48 +70,43 @@ order: 1
 
 <!-- [![badge](image)]() : 해당처럼 한번더 안씌우면 url error로 뜸, <a> 태그 안에 <img> 태그가 들어가서 양쪽다 url 입력해야하고 변수지정 방법은 안됨.-->
 
-[![badge](https://img.shields.io/badge/OS-ffb86c?style=for-the-badge)]()
-[![badge](https://img.shields.io/badge/Linux-HIGH-ffb86c?style=for-the-badge&logo=Linux)]()
-[![badge](https://img.shields.io/badge/Windows-HIGH-ffb86c?style=for-the-badge&logo=windows&logoColor=blue)]()
-[![badge](https://img.shields.io/badge/Ubuntu-HIGH-ffb86c?style=for-the-badge&logo=Ubuntu)]()
 
-[![badge](https://img.shields.io/badge/Lang-ffb86c?style=for-the-badge)]()
-[![badge](https://img.shields.io/badge/Python-HIGH-ffb86c?&style=for-the-badge&logo=Python)]()
-[![badge](https://img.shields.io/badge/Markdown-HIGH-ffb86c?&style=for-the-badge&logo=markdown)]()
+[![badge](https://img.shields.io/badge/Linux-555555?style=for-the-badge&logo=Linux)]()
+[![badge](https://img.shields.io/badge/Windows-555555?style=for-the-badge&logo=windows&logoColor=blue)]()
+[![badge](https://img.shields.io/badge/Ubuntu-555555?style=for-the-badge&logo=Ubuntu)]()
 
-[![badge](https://img.shields.io/badge/F/W-ffb86c?style=for-the-badge)]()
-[![badge](https://img.shields.io/badge/sklearn-HIGH-ffb86c?style=for-the-badge&logo=scikit-learn)]()
-[![badge](https://img.shields.io/badge/Pytorch-MEDIUM-ffb86c?style=for-the-badge&logo=Pytorch)]()
-[![badge](https://img.shields.io/badge/Tensorflow-MEDIUM-ffb86c?style=for-the-badge&logo=Tensorflow)]()
+[![badge](https://img.shields.io/badge/Python-555555?&style=for-the-badge&logo=Python)]() 
+[![badge](https://img.shields.io/badge/R-555555?&style=for-the-badge&logo=R)]() 
+[![badge](https://img.shields.io/badge/Markdown-555555?&style=for-the-badge&logo=markdown)]() 
 
-[![badge](https://img.shields.io/badge/DB-ffb86c?style=for-the-badge)]()
-[![badge](https://img.shields.io/badge/PostgreSQL-MEDIUM-ffb86c?style=for-the-badge&logo=PostgreSQL)]()
-[![badge](https://img.shields.io/badge/MySQL-MEDIUM-ffb86c?style=for-the-badge&logo=MySQL)]()
+[![badge](https://img.shields.io/badge/scikit--learn-555555?style=for-the-badge&logo=scikit-learn)]() 
+[![badge](https://img.shields.io/badge/Pytorch-555555?style=for-the-badge&logo=Pytorch)]() 
+[![badge](https://img.shields.io/badge/Tensorflow-555555?style=for-the-badge&logo=Tensorflow)]() 
 
-[![badge](https://img.shields.io/badge/ENV-ffb86c?style=for-the-badge)]()
-[![badge](https://img.shields.io/badge/Git-HIGH-ffb86c.svg?style=for-the-badge&logo=Git)]()
-[![badge](https://img.shields.io/badge/Pipenv-HIGH-ffb86c?style=for-the-badge&logo=pypi)]()
-[![badge](https://img.shields.io/badge/Docker-MEDIUM-ffb86c?style=for-the-badge&logo=Docker)]()
+[![badge](https://img.shields.io/badge/PostgreSQL-555555?style=for-the-badge&logo=PostgreSQL)]() 
+[![badge](https://img.shields.io/badge/MySQL-555555?style=for-the-badge&logo=MySQL)]() 
 
-[![badge](https://img.shields.io/badge/ETC-ffb86c?style=for-the-badge)]()
-[![badge](https://img.shields.io/badge/GA4-MEDIUM-ffb86c?style=for-the-badge&logo=google-analytics)]()
-[![badge](https://img.shields.io/badge/AWS-LOW-ffb86c?style=for-the-badge&logo=amazon-aws&logoColor=orange)]()
-[![badge](https://img.shields.io/badge/kubernetes-LOW-ffb86c?style=for-the-badge&logo=kubernetes)]()
+[![badge](https://img.shields.io/badge/Git-555555.svg?style=for-the-badge&logo=Git)]() 
+[![badge](https://img.shields.io/badge/Pipenv-555555?style=for-the-badge&logo=pypi)]() 
+[![badge](https://img.shields.io/badge/Docker-555555?style=for-the-badge&logo=Docker)]() 
+
+[![badge](https://img.shields.io/badge/GA4-555555?style=for-the-badge&logo=google-analytics)]() 
+[![badge](https://img.shields.io/badge/AWS-555555?style=for-the-badge&logo=amazon-aws&logoColor=orange)]() 
+[![badge](https://img.shields.io/badge/kubernetes-555555?style=for-the-badge&logo=kubernetes)]() 
 
 ---
 
 ### :medal_sports: Certification
 
 
-| 날짜 | 자격증 이름 | 점수(급수) |
-| --- | --- | --- |
-| 2018.03.23 | 컴퓨터활용능력 | 1급 |
-| 2021.06.02 | 사회조사분석사 | 2급 |
-| 2021.03.23 | SQLD(SQL 개발) | - |
-| 2021.09.24 | ADSP(데이터분석 준전문가) | - |
-| 2022.06.22 | TOEIC | 710 |
-| 2022.07.15 | 빅데이터분석기사 | - |
-| 2022.09.02 | 정보처리기사 | - |
+||||
+|:--|:--|:--|
+| 2018.03.23 &emsp;| 대한상공회의소| 컴퓨터활용능력 1급 |
+| 2021.06.02 | 한국산업인력공단| 사회조사분석사 2급 |
+| 2021.06.25 | 한국데이터산업진흥원 | SQLD(SQL 개발) |
+| 2021.09.24 | 한국데이터산업진흥원 | ADSP(데이터분석 준전문가) |
+| 2022.07.15 | 한국데이터산업진흥원 | 빅데이터분석기사 |
+| 2022.09.05 | 한국산업인력공단 | 정보처리기사 |
 
 ---
 
@@ -125,16 +114,15 @@ order: 1
 ### :seedling: GitHub Stats
 
 <div align='center' style="display: flex; flex-wrap: wrap; align-items: stretch;">
-  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="http://mazassumnida.wtf/api/generate_badge?boj=tjy2202" alt=""></a>
-    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://mz-github-stats.vercel.app/api?username=eastk1te&show_icons=true&hide_border=true&theme=radical" alt=""></a>
-  </div>
   <div align='center' style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://github-readme-activity-graph.cyclic.app/graph?username=eastk1te&bg_color=1a1a1a&color=c9c9c9&line=50a838&point=4cc0c2&area=true&hide_border=true" alt=""></a>
+    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://mz-github-stats.vercel.app/api?username=eastk1te&show_icons=true&hide_border=true&theme=radical" alt=""></a>
     <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://mz-github-stats.vercel.app/api/top-langs/?username=eastk1te&show_icons=true&hide_border=true&layout=compact&langs_count=8&theme=radical" alt=""></a>
   </div>
+  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="http://mazassumnida.wtf/api/generate_badge?boj=tjy2202" alt=""></a>
+    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://github-readme-activity-graph.vercel.app/graph?username=eastk1te&theme=github-compact" alt=""></a>
+  </div>
 </div>
-
 
 
 ---
