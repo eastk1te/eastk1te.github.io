@@ -1,9 +1,9 @@
 ---
-title: '[도서]Naked Statistics'
+title: '[BOOK]Naked Statistics'
 author: east
 date: 2022-11-09 00:00:00 +09:00
-categories: [ETC, BOOK_REVIEW]
-tags: [Statistics]
+categories: [ETC, BOOK]
+tags: [ETC, BOOK, Statistics]
 math: true
 mermaid: true
 ---

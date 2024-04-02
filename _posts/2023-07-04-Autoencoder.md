@@ -1,9 +1,9 @@
 ---
-title: 'AutoEncoder'
+title: '[Paper]AutoEncoder'
 author: east
 date: 2023-07-04 00:00:00 +09:00
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAGS]
+categories: [Paper, Autoencoder]
+tags: [Paper, Autoencoder, AE, VAE, DAE, CAE, AAE]
 math: true
 mermaid: true
 # pin: true

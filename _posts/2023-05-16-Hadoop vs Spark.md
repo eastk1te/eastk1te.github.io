@@ -1,9 +1,9 @@
 ---
-title: 'Hadoop vs Spark'
+title: '[DevOps]Hadoop vs Spark'
 author: east
 date: 2023-05-16 00:00:00 +09:00
-categories: [Open Source, Framwork]
-tags: [Hadoop, Spark, Aparch]
+categories: [DevOps, Framework]
+tags: [DevOps, Framework, Hadoop, Spark]
 math: true
 mermaid: true
 ---

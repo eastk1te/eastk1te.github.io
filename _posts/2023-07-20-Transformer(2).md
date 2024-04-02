@@ -1,9 +1,9 @@
 ---
-title: '[Deep Learning]Transformer(2)'
+title: '[Paper]Transformer(2)'
 author: east
 date: 2023-07-20 00:00:00 +09:00
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAGS]
+categories: [Paper, NLP]
+tags: [Paper, NLP]
 math: true
 mermaid: true
 # pin: true
@@ -47,25 +47,25 @@ RNN, LSTM, GRU등의 신경망은 sequence modeling과 번역 문제의 언어 �
 ![1](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/148e97e6-d691-4408-a743-4caa7b6a4204)
 _Figure 1 : Transformer - model architecture_
 
-> ### i. Encoder and Decoder Stacks
+> ### ⅰ. Encoder and Decoder Stacks
 
-- #### Encoder
+- #### `Encoder`
 
   인코더는 동일한 N개의 layer로 구성되어 있습니다. 각 레이어는 두개의 서브레이어로 구성되는데, `처음은 멀티-헤드 셀프 어텐션`$$_{Multi-head \; self-attention}$$ 매커니즘이고 `두번째는 Position-wise 완전연결층 순전파 신경망`입니다. 우리는 레이어 정규화와 잔차 연결$$_{Residual \; connection}$$을 두개의 서브레이어로 적용했습니다. 각 서브레이어의 출력은 아래와 같이 되고, $$SubLayer(x)$$는 앞서말한 서브레이어로 구현됩니다.
   
 
-- #### Decoder
+- #### `Decoder`
 
   디코더도 인코더와 동일한 N개의 layer로 구성되어있습니다. 앞서 인코더에서 말한 두개의 서브레이어에 추가적으로 인코더 스택의 결과에서 멀티-헤드 어텐션을 수행하는 세번째 서브레이어로 구성되어있습니다. 인코더와 유사하게 각 서브레이어에 레이어 정규화와 잔차 연결을 선택했습니다. 또한, 디코더 안에 셀프-어텐션 레이어는 순차적인 포지션을 기준으로 작동하며 Subsequent postions에서 집중되는 위치 이동을 예방하기 위해 사용되어, position $$i$$에 대한 예측이 $$i$$ 이전의 알려진 출력에만 의존하도록 보장합니다. 이를 위해 출력 임베딩에서 한개의 위치만큼 오프셋$$_{offset}$$(위치이동)된 마스킹$$_{Subsequent-masks}$$이 사용됩니다. 즉, 미래의 단어가 현재 단어의 예측에 영향을 미치지 않게 하는 방법입니다.
 
 
-> ### i. Regularzation
+> ### ⅱ. Regularzation
 
 $$ ResiduaConnection(x) = x + Dropout(SubLayer(LayerNorm(x)))$$
 
 트랜스포머는 모든 어텐션 레이어 및 모든 피드 포워드 레이어 이후에 잔차 연결과 레이어 정규화를 사용합니다. 이러한 잔차 연결 및 배치 정규화를 사용하여 퍼포먼스를 향상시키고, 훈련 시간을 단축하며, 심층 네트워크의 효과적인 학습을 가능하게 합니다. 
 
-> ### ii. Layer Normalization
+> ### ⅲ. Layer Normalization
 
 레이어 정규화$_{Normalization}$ 유형은 큰 배치 사이즈에 영향을 받아 순환에 적합하지 않습니다. 따라서 기존 트랜스포머 아키텍처는 레이어 정규화를 사용하여 해당 문제를 해결합니다. 레이어 정규화는 배치 크기가 작더라도$_{batch_size < 8}$ 안정적인 성은을 보입니다. 레이어 정규화를 연산하기 위해, 미니배치의 각 샘플에 대한 평균$_{\mu_i}$과 표준편차$_{\sigma_i}$를 아래와 같이 별도로 계산합니다.
 
@@ -77,7 +77,7 @@ $$LN_{\gamma, \beta}(x_i) \equiv \gamma \frac{x-\mu_i}{\sigma_i+\epsilon} + \bet
 
 여기서 $\gamma$와 $\beta$는 학습 가능한 매개변수이고, 표준편차가 0일 경우 수치 안정성$_{numerical-stability}$을 위해 작은 수인 $\epsilon$가 추가됩니다.
 
-> ### iii. Residual Connection
+> ### ⅳ. Residual Connection
 
 레지듀얼 커넥션(Residual Connection)은 이전(하위) 레이어의 출력을 현재 레이어의 출력에 추가하는 것을 의미합니다. 이렇게 하면 네트워크가 특정 레이어를 '건너뛰기' 할 수 있는 추가적인 경로를 제공함으로써 레이어 사이에 정보가 더 쉽게 전달되게 합니다. 매우 깊은 네트워크에서는 그래디언트 소실 문제가 발생할 수 있어 이러한 문제를 해결하기 위해 잔차 연결을 사용하여 네트워크의 일부분이 다른 부분과 독립적으로 학습해 깊은 네트워크를 허용할 수 있습니다. 이로 인해 특정 레이어가 나머지 네트워크의 학습에 거의 영향을 주지 않는 경우에도 효과적으로 작동할 수 있습니다. 
 
@@ -105,7 +105,7 @@ _Figure 2 : 어텐션 매커니즘_
 ![3](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/c8cefbbe-1d9d-4615-9e5a-743a906a5cbd)
 _Figure 3 : (좌) 보정된 내적곱 어텐션 (우)여러개의 병렬적으로 동작하는 어텐션 레이로 구성된 멀티-헤드 어텐션_
 
-> ### . Scaled Dot-Product Attention
+> ### ⅰ. Scaled Dot-Product Attention
 
 일종의 루옹 어텐션인 `"Scaled Dot-Product Attention"`으로 내적으로 주어진 Query(Q)와 Key(K)로 Dot-Product(Multiplicative) 어텐션을 사용하여 유사도를 계산하고, 이에 기반하여 Value(V)를 가중합하여 어텐션 값을 계산하는 어텐션 함수입니다. 이때, 내적 결과에 Sacling factor인 $$\frac{1}{\sqrt{d_k}}$$를 적용하여 어텐션 값의 크기를 조절하는 방법입니다. 
 
@@ -122,7 +122,7 @@ Scaled Dot-Product Attention은 MLP를 사용하여 유사도를 계산하는 Ad
 
 작은 크기의 $d_k$로 구성된 두개의 매커니즘은 동일한 성능을 보이지만, 큰 크기의 $d_k$에서는 스케일링을 하지 않은 내적곱 어텐션보다 바나다우 어텐션의 성능이 좋다고 합니다. 논문은 $d_k$가 큰 차원인 경우, 내적곱이 큰 크기로 증가하여 내적곱을 softmax에 넣어 매우 작은 미분값$$_{gradient}$$을 가지도록 했습니다. 이러한 효과를 상쇄하기 위해 dot product를 $$\frac{1}{\sqrt{d_k}}$$로 보정했습니다.
 
-> ### i. Dot-Product Attention
+> ### ⅱ. Dot-Product Attention
 
 Dot-Product Attention에서 내적을 통해 유사도를 계산하는 이유에 대해 설명하겠습니다.
 
@@ -132,7 +132,7 @@ Q,K의 내적에서 각 단어의 벡터들의 내적은 고차원 공간에서 
 
 이러한 어텐션 매커니즘 그 자체는 아주 효과적이며 행렬곱셈$_{matrix multiplication}$에 최적화된 GPU 및 TPU과 같은 최신 하드웨어에서 효율적으로 연산될 수 있습니다. 하지만 단일헤드 어텐션 레이어는 하나의 표현만을 허용하므로 다중 어텐션 헤드가 사용됩니다. 
 
-> ### Ⅶ. Multi-head Attention
+> ## Ⅶ. Multi-head Attention
 
 `Multi-Head Attention`은 Q, K, V를 가지고 $d_{model}$ 차원의 단일-헤드$$_{Single-head}$$ 어텐션을 수행하는 것 대신에 각각 h번 $d_k$, $d_k$, $d_v$의 차원으로 선형적 투영을 하는것이 효과적이다고 보았습니다. 해당 투영은 어텐션 함수를 $d_v$ 차원의 결과 값을 병렬적으로 처리할 수 있게 해줍니다. 
 
@@ -147,7 +147,7 @@ $$where, \space head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)$$
 
 디코더에서는 `Masked Multi-head 어텐션`이 사용되는데, 서브레이어에서 고정 위치를 매우 큰 음수로 채움으로써 마스킹 됩니다. 이는 자기 회귀적인 특성 떄문에 `미래 토큰에 대한 정보를 차단`하기 위해 후속 위치를 처리함으로써 모델이 부정행위$_{cheating}$을 예방하기 위함. 이를 통해 모델은 다음 토큰을 예측하려 할 떄 이전 위치의 단어에만 주의를 기울여 실제 단어를 예측하는 데 필요한 정보를 학습할 수 있습니다. 이는 소프트맥스 함수를 통과한 결과에서 해당 위치의 값을 0 근처로 밀어넣어, 어텐션 메커니즘에서 후속 위치에 주어지는 가중치를 최소화합니다. 
 
-> ### i. Applications of Attention in our Model
+> ### ⅰ. Applications of Attention in our Model
 
 트랜스포머는 세가지방식으로 멀티헤드 어텐션을 적용합니다.
 
@@ -173,11 +173,11 @@ $$FFN(x) = max(0, xW_1 + b_1)W_2 + b_2$$
 
 이 선형 변환들은 각 계층에서 다른 파라미터를 사용하여 다른 position에 있는 같은 패턴을 인식할 수 있습니다. 다른 관점에서 보면 kernel size 1인 두개의 convolution으로 설명할수있습니다. 즉, 위치별로 독립 작용하므로 각 위치에 독립적인 정보 처리가 가능합니다. 이를 통해 시퀀스 내의 각 토큰은 별도로 학습되고 처리됩니다.
 
-> ## i. Embedding and Softmax
+> ### ⅰ. Embedding and Softmax
 
 다른 순차적 변환 모델과 유사하게 학습된 embedding을 입력 토큰과 출력 토큰을 $d_{model}$차원의 벡터로 변환하는데 사용합니다. 또한, 학습된 선형 변환과 softmax 함수로 디코더의 다음 토큰의 확률분포를 출력합니다. 해당 모델에서 embedding layer와 pre-softmax 선형 변환 사이의 가중치 행렬을 공유합니다. 이렇게 함으로써 더 적은 변수를 추정하고, 메모리나 연산 비용이 줄고 학습 또한 개선이 됩니다. 그리고 임베딩 계층에서 $$\sqrt{d_{model}}$$를 곱하여 스케일링을 수행하는데, 이는ㄴ 모델의 수렴에 도움이 되며, 과적합 등을 밪이할 수 있습니다.
 
-> ## i. Positional Encoding
+> ### ⅱ. Positional Encoding
 
 해당 모델에서는 모델이 순차적으로 시퀀스의 순서를 가지고 토근의 상대 위치(relatevie postion)에 대한 정보를 사용하는 RNN이나 CNN을 사용하지않습니다. 따라서 우리는 시퀀스 토큰과 관련되거나 절대적인 position에 대한 정보를 넣어야합니다. 그래서 우리는 "positional encoding"을 입력 임베딩을 인코더와 디코더 맨 아래에 추가했습니다. 포지셔널 인코딩은 $$d_{model}$$의 차원으로 임베딩과 같은 차원입니다. 따라서 두개의 덧셈이 수행가능해집니다. 포지셔널 인코딩은 학습되거나 고정된 다양한 방법이 존재합니다. 
 
@@ -211,12 +211,17 @@ _Figure 5 : 많은 어텐션 헤드들이 문장의 구조와 연관된 행동�
 
 > ## Ⅹ. Conclusion
 
+https://huggingface.co/docs/transformers/model_summary
+https://tutorials.pytorch.kr/beginner/transformer_tutorial.html
+
+attention mechanism이 Factor analysis로 다변량 통계기법으로 변수 간의 상관관계를 분석하여 관측된 데이터를 더 작은 수의 요인이나 구성 요소로 설명하려는데 사용함.
+
 
 
 > ## Ⅺ. 구현
 
 ```python
-구현예정
+
 ```
 
 > ## Ⅻ. References

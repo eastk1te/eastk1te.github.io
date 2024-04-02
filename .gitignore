@@ -10,6 +10,7 @@
 __description.md
 _*.md
 qqq_*
+q_*
 
 # hidden posts
 /_posts/_Template.md

@@ -2,8 +2,8 @@
 title: "[BOOK]Can't hurt me"
 author: east
 date: 2023-11-17 00:00:00 +09:00
-categories: [ETC, BOOK_REVIEW]
-tags: [TAGS]
+categories: [ETC, BOOK]
+tags: [ETC, BOOK]
 math: true
 mermaid: true
 # pin: true
