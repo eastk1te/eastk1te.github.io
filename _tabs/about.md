@@ -23,6 +23,7 @@ _안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰
 
 --- 
 
+<!-- 
 <style>
   alpha {
     opacity: 0.5; /* 투명도(0~1) 설정 */
@@ -33,35 +34,36 @@ _안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰
 
 <table style>
   <tbody style='background:none;border:0px;text-align: left; vertical-align: top;'>
-    <!--  -->
+
     <tr style='background:none;'>
       <td>강원대학교 <br> <alpha> 2016.03 ~ 2023.02 </alpha></td>
       <td  style="padding-right: 0px;">•</td>
       <td> Bachelor of Science in `Statistics and Data Science`, Double Major. <br> GPA 3.88 / 4.5</td>
     </tr>
-    <!--  -->
+
     <tr style='background:none;'>
       <td> 빅데이터 인공지능 <br> 창의융합 인재양성과정 <br><alpha> 2020.06 ~ 2020.12 </alpha></td>
       <td  style="padding-right: 0px;">•</td>
       <td> 80일간의 기술인재과정 수료. <br> Python 기초 및 빅데이터 처리/분석, 머신러닝 기술(자연어, 오디오, 이미지) 교육. </td>
     </tr>
-    <!--  -->
+
     <tr style='background:none;'>
       <td>중소기업 빅데이터 <br> 인재양성과정 <br> <alpha> 2021.08 ~ 2021.12 </alpha></td>
       <td  style="padding-right: 0px;">•</td>
       <td> 80일간의 전문가과정 수료. <br> MLOps 및 딥러닝 심화 과정, 문제 해결 기반의 실전 특화 교육 진행.</td>
     </tr>
-    <!-- 
+
     <tr style='background:none;'>
       <td><a href=''> </a> <br><alpha> 2020.06 ~ 2020.12 </alpha></td>
       <td  style="padding-right: 0px;">•</td>
       <td> </td>
     </tr> 
-    -->
+
   </tbody>
 </table>
 
----
+--- 
+-->
 
 ### :sparkles: Languages and Tools.
 
@@ -93,9 +95,11 @@ _안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰
 
 ---
 
-### :medal_sports: Certification
 
 <!-- 
+
+### :medal_sports: Certification
+
 [![b](https://img.shields.io/badge/2024.02.25%20%7C%20TOEIC%20790-555555?style=for-the-badge)]() 
 
 [![b](https://img.shields.io/badge/2022.09.05%20%7C%20정보처리기사-555555?style=for-the-badge)]() 
@@ -109,7 +113,7 @@ _안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰
 [![b](https://img.shields.io/badge/2021.06.02%20%7C%20사회조사분석사%202급-555555?style=for-the-badge)]() 
 
 [![b](https://img.shields.io/badge/2018.03.23%20%7C%20컴퓨터활용능력%201급-555555?style=for-the-badge)]() 
- -->
+ 
 
 |날짜|주최기관|자격증|
 |:--|:--|:--|
@@ -122,7 +126,7 @@ _안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰
 | 2018.03.23 | 대한상공회의소| 컴퓨터활용능력 1급 |
 
 ---
-
+-->
 
 ### :seedling: GitHub Stats
 
