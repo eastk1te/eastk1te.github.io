@@ -303,7 +303,7 @@ $$\underset{\theta}{argmax} \space p_{\theta}(x) = \int p_\theta(z)p_\theta (x|z
 
 $$L(x^i, \theta , \phi) = - E_z[logp_\theta (x^i|z)] + D_{KL}(q_\phi(z|x^i)||p_\theta (z))$$
 
-$E_z[logp_\theta (x^i\|z)]$ 는 복원 손실((reconstruct error))로 입력값과 출력값의 차이이고, $D_{KL}(q_\phi(z|x^i)||p_\theta (z))$는 KLD 손실로 인코더의 출력 중 평균 및 분산과 사전 정의된 확률분포(ex. 가우시안 분포) 간의 차이를 측정하는 항목으로 잠재 공간에서의 생성된 사후확률분포에 근접하게 만들어야합니다.
+$$E_z[logp_\theta (x^i\|z)]$$ 는 복원 손실((reconstruct error))로 입력값과 출력값의 차이이고, $$D_{KL}(q_\phi(z\vert x^i)\Vert p_\theta (z))$$는 KLD 손실로 인코더의 출력 중 평균 및 분산과 사전 정의된 확률분포(ex. 가우시안 분포) 간의 차이를 측정하는 항목으로 잠재 공간에서의 생성된 사후확률분포에 근접하게 만들어야합니다.
 
 
 > ### ⅱ. CVAE(Conditional VAE)
