@@ -67,7 +67,7 @@ $$ ResiduaConnection(x) = x + Dropout(SubLayer(LayerNorm(x)))$$
 
 > ### ⅲ. Layer Normalization
 
-레이어 정규화$_{Normalization}$ 유형은 큰 배치 사이즈에 영향을 받아 순환에 적합하지 않습니다. 따라서 기존 트랜스포머 아키텍처는 레이어 정규화를 사용하여 해당 문제를 해결합니다. 레이어 정규화는 배치 크기가 작더라도$_{batch_size < 8}$ 안정적인 성은을 보입니다. 레이어 정규화를 연산하기 위해, 미니배치의 각 샘플에 대한 평균$_{\mu_i}$과 표준편차$_{\sigma_i}$를 아래와 같이 별도로 계산합니다.
+레이어 정규화$$_{Normalization}$$ 유형은 큰 배치 사이즈에 영향을 받아 순환에 적합하지 않습니다. 따라서 기존 트랜스포머 아키텍처는 레이어 정규화를 사용하여 해당 문제를 해결합니다. 레이어 정규화는 배치 크기가 작더라도$$_{batch_size < 8}$$ 안정적인 성은을 보입니다. 레이어 정규화를 연산하기 위해, 미니배치의 각 샘플에 대한 평균$$_{\mu_i}$$과 표준편차$$_{\sigma_i}$$를 아래와 같이 별도로 계산합니다.
 
 $$\mu_i = \frac{1}{K}\sum^{k}_{k=1}x_{i,k}, \;\; \sigma_i = \frac{1}{K}\sum^{k}_{k=1}(x_{i,k} - \mu_i)^2$$
 
@@ -118,6 +118,21 @@ $d_k$의 차원으로 구성된 query와 key 그리고 $d_v$의 차원으로 구
 ![image](https://velog.velcdn.com/images%2Fcha-suyeon%2Fpost%2F26e3183e-53b1-4ad0-a6ff-dc5bd5a4591d%2Fimage.png)
 _Figure 4 : 쿼리(Q)는 입력의 임베딩이며, 값(V)과 키(K)는 목표로 일반적으로 동일합니다. 임베딩 된 입력문장의 행렬은 (시퀀스 길이, 임베딩 차원 수), $W^\bullet$는 (임베딩 차원수, 임베딩차원수), Q, K, V 들은 (시퀀스 길이, 임베딩 차원 수)의 shape을 가지게 됩니다._
 
+해당 내용에서 `Q는 Query를 뜻하며 "무엇이 나랑 관련있어?"라는 질문`을 뜻하고, `K는 해당 쿼리의 응답으로 "내가 관련있어"라는 의미`로 받아들이면 됩니다. Figure 4에서 확인 가능하듯이 Q와 K, V는 입력 임베딩($$dim_{embed}, n$$)의 행렬과 학습 가능한 각 가중치 행렬($$W_Q, W_K, (dim_{model}, dim_{embed})$$)들의 내적으로 계산됩니다. 즉, 입력 토큰의 임베딩 벡터가 $$dim_{model}$$ 차원의 공간으로 가중치행렬을 통해 투영됩니다.이를 통해 Q와 K를 dot product 연산을 사용해 각 토큰간의 상관관계를 표현(즉, Q와 K가 얼마나 유사한지)할 수 있습니다.
+
+![1](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/a1bf430e-97b7-405e-b7e4-ae5972100ff5)
+_출처 : 3Blue1Brown 유튜브_
+
+`V는 Value를 뜻하며 실제로 주목할 대상`을 나타냅니다. V에도 마찬가지로 Q,K와 동일하게 입력 임베딩에 가중치 행렬($$W_V$$)을 곱해 계산이 되는데, 위 그림에서 "blue fluffy creature"를 예시로 임베딩 차원에서 현재 토큰 임베딩 벡터에서 다음 토큰 임베딩 벡터로 가는 Value 벡터를 계산합니다. 이는 해단 토큰이 문장에서 가지는 의미를 담고있어 어느 곳으로 가야하는지 알려주는 것으로 아래식에서 $$Δ/vec{E}_i$$와 같이 표현할 수 있습니다.
+
+$$\begin{array}
+W_V E= \vec{V} \\
+Δ/vec{E}_i = \vec{V} \vec{E}_i \\
+/vec{E}_i + Δ/vec{E}_i = /vec{E}_i' \\
+\end{array}$$
+
+이러한 Value의 작업은 토큰 임베딩 차원에서 진행되어 ($$dim_{embed}, dim_{embed}$$)으로 구성될 수 있으나 "Low Rank" 변환을 통해 ($$dim_{embed}, dim_{embed}$$)을 고차원에서 저차원으로 그리고 저차원에서 고차원으로 투영하는 $$(dim_{embed}, dim_{model}) \cdot (dim_{model}, dim_{embed})$$의 형태로 표현하여 파라미터 수를 현격히 감소 시킨다고 합니다.
+
 Scaled Dot-Product Attention은 MLP를 사용하여 유사도를 계산하는 Additive(Bahdanau) 어텐션과 비교하여 이론적 복잡성이 동일할 때, 행렬 내적 연산이 더 낮은 계산 복잡성과 공간 효율성을 가져 더 효율적인 모델로 최적화 됩니다.
 
 작은 크기의 $d_k$로 구성된 두개의 매커니즘은 동일한 성능을 보이지만, 큰 크기의 $d_k$에서는 스케일링을 하지 않은 내적곱 어텐션보다 바나다우 어텐션의 성능이 좋다고 합니다. 논문은 $d_k$가 큰 차원인 경우, 내적곱이 큰 크기로 증가하여 내적곱을 softmax에 넣어 매우 작은 미분값$$_{gradient}$$을 가지도록 했습니다. 이러한 효과를 상쇄하기 위해 dot product를 $$\frac{1}{\sqrt{d_k}}$$로 보정했습니다.
@@ -132,6 +147,31 @@ Q,K의 내적에서 각 단어의 벡터들의 내적은 고차원 공간에서 
 
 이러한 어텐션 매커니즘 그 자체는 아주 효과적이며 행렬곱셈$_{matrix multiplication}$에 최적화된 GPU 및 TPU과 같은 최신 하드웨어에서 효율적으로 연산될 수 있습니다. 하지만 단일헤드 어텐션 레이어는 하나의 표현만을 허용하므로 다중 어텐션 헤드가 사용됩니다. 
 
+```python
+def scaled_dot_product_attention(q, k, v, mask):
+  ...
+
+  # Q와 K의 product 연산 수행
+  matmul_qk = tf.matmul(q, k, transpose_b=True)
+
+  # 차원 보정 값 연산
+  dk = tf.cast(tf.shape(k)[-1], tf.float32)
+  scaled_attention_logits = matmul_qk / tf.math.sqrt(dk)
+
+  # 마스킹 적용
+  if mask is not None:
+    scaled_attention_logits += (mask * -1e9)
+
+  # softmax를 적용하여 합계가 1인 가중치 합으로 변환
+  attention_weights = tf.nn.softmax(scaled_attention_logits, axis=-1)
+
+  # V와 내적
+  output = tf.matmul(attention_weights, v)
+
+  return output, attention_weights
+```
+
+
 > ## Ⅶ. Multi-head Attention
 
 `Multi-Head Attention`은 Q, K, V를 가지고 $d_{model}$ 차원의 단일-헤드$$_{Single-head}$$ 어텐션을 수행하는 것 대신에 각각 h번 $d_k$, $d_k$, $d_v$의 차원으로 선형적 투영을 하는것이 효과적이다고 보았습니다. 해당 투영은 어텐션 함수를 $d_v$ 차원의 결과 값을 병렬적으로 처리할 수 있게 해줍니다. 
@@ -143,9 +183,37 @@ $$MultiHead(Q,K,V) = Concat(head_1, ... , head_h)W^O$$
 $$where, \space head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)$$
 
 각각의 어텐션 헤드의 투영된 파라미터 매트릭스 $$QW^Q_i \in \mathbb{R}^{d_{model} x d_k}, KW^K_i \in \mathbb{R}^{d_{model} x d_k}, VW^V_i \in \mathbb{R}^{d_{model} x d_v} \; and \; VW^O_i \in \mathbb{R}^{hd_v x d_{model}}$$를 독립적(병렬적)으로 학습하고, 해당 헤드에서 어텐션 연산을 수행합니다. 
- 위와 같이 각 헤드에서 나온 결과를 Concat으로 결합하여 다양한 표현을 학습할 수 있습니다. 이렇게 각 헤드에서 차원 축소가 일어나기 떄문에 총 계산 비용은 단일 헤드 어텐션의 전체 차원하고 비슷해지지만 `다중 패턴 및 표현을 학습`할 수 있어집니다.
+
+위와 같이 각 헤드에서 나온 결과를 Concat으로 결합하여 다양한 표현을 학습할 수 있습니다. 이렇게 각 헤드에서 차원 축소가 일어나기 떄문에 총 계산 비용은 단일 헤드 어텐션의 전체 차원하고 비슷해지지만 `다중 패턴 및 표현을 학습`할 수 있어집니다.
+
+즉, 멀티 헤드 어텐션에서 각 헤드는 개별적으로 무작위 초기화 가중치 행렬들을 가지는데 이 행렬들이 고차원을 가지기 때문에 학습을 하면서 `같은 지역최솟값을 가지는 경우가 드물어 다양성을 보장`한다는 이야기입니다.
 
 디코더에서는 `Masked Multi-head 어텐션`이 사용되는데, 서브레이어에서 고정 위치를 매우 큰 음수로 채움으로써 마스킹 됩니다. 이는 자기 회귀적인 특성 떄문에 `미래 토큰에 대한 정보를 차단`하기 위해 후속 위치를 처리함으로써 모델이 부정행위$_{cheating}$을 예방하기 위함. 이를 통해 모델은 다음 토큰을 예측하려 할 떄 이전 위치의 단어에만 주의를 기울여 실제 단어를 예측하는 데 필요한 정보를 학습할 수 있습니다. 이는 소프트맥스 함수를 통과한 결과에서 해당 위치의 값을 0 근처로 밀어넣어, 어텐션 메커니즘에서 후속 위치에 주어지는 가중치를 최소화합니다. 
+
+```python
+class MultiHeadAttention(tf.keras.layers.Layer):
+  ...
+  def call(self, v, k, q, mask):
+    batch_size = tf.shape(q)[0]
+
+    q = self.wq(q)  # (batch_size, seq_len, d_model)
+    k = self.wk(k)  # (batch_size, seq_len, d_model)
+    v = self.wv(v)  # (batch_size, seq_len, d_model)
+
+    q = self.split_heads(q, batch_size)  # (batch_size, num_heads, seq_len_q, depth)
+    k = self.split_heads(k, batch_size)  # (batch_size, num_heads, seq_len_k, depth)
+    v = self.split_heads(v, batch_size)  # (batch_size, num_heads, seq_len_v, depth)
+
+    scaled_attention, attention_weights = scaled_dot_product_attention(q, k, v, mask)
+
+    # (batch_size, seq_len_q, num_heads, depth)
+    scaled_attention = tf.transpose(scaled_attention, perm=[0, 2, 1, 3])  
+
+    # (batch_size, seq_len_q, d_model)
+    concat_attention = tf.reshape(scaled_attention,
+                                  (batch_size, -1, self.d_model))  
+    ...
+```
 
 > ### ⅰ. Applications of Attention in our Model
 
@@ -191,6 +259,19 @@ $$PE_{(pos, 2i+1)} = cos(pos/100000^{2i/d_{model}})$$
 
 $pos$는 position이고, i는 dimension입니다. 포지셔널 인코딩의 각 차원은 사인곡선$$_{sinusoid}$$에 해당하여 $[2\pi, 10000 \cdot 2\pi]$의 기하학적 수열의 파장의 길이를 가집니다. 모델이 연관된 position에 주의를 주는 것을 쉽게 배우도록 가정한 것이 이 함수를 사용한 이유입니다. 따라서 고정된 offset $k$를 가지는  $PE_{pos+k}$는 $PE_{pos\cdot}$의 선형 함수로 표현될 수 있습니다. 위와 같은 공식을 그대로 사용하면 숫자 오버 플로우가 발생할 수도 있어 보통 log 공간에서 사용이 됩니다.
 
+```python
+def positional_encoding(position, d_model):
+
+  # p : position, i : dimention
+  angle_rads = pos * (1 / np.power(10000, (2 * (i//2)) / np.float32(d_model)))
+  # 짝수 칸에 적용
+  angle_rads[:, 0::2] = np.sin(angle_rads[:, 0::2])
+  # 홀수 칸에 적용
+  angle_rads[:, 1::2] = np.cos(angle_rads[:, 1::2])
+
+  pos_encoding = angle_rads[np.newaxis, ...]
+```
+
 > ## Ⅸ. Why Self-Attention
 
 `Self-Attention(or Encoder-Decoder Attention)`은 Query, Key, Value라는 `입력 시퀀스의 값들을 행렬로 변환`하고 어텐션 가중치와 출력을 계산하는 매커니즘입니다. 해당 계층은 가변 길이의 시퀀스를 동일한 길이의 다른 시퀀스로 매핑하는 역할을 하는 RNN이나 CNN 계층과 여러 측면에서 비교됩니다. 셀프어텐션을 사용하는 이유는 다음과 같은 세 가지 요인을 고려합니다. 첫 번째는 `레이어당 총 계산 복잡성`이고, 두 번째는 `순차적 작업이 요구되는 최소 횟수`로 측정되는 병렬적으로 수행 가능한 계산량의 총량입니다. 마지막으로 세 번째 요인은 `네트워크의 장기 의존성 사이의 경로 길이`입니다.
@@ -199,9 +280,13 @@ $pos$는 position이고, i는 dimension입니다. 포지셔널 인코딩의 각 
 
 셀프 어텐션 계층은 지속적으로 작업이 시작되는 모든 위치와 연결됩니다. 반면에 순환 계층은 $O(n)$의 시간 복잡도가 요구됩니다. 계산 복잡도 측면에서 시퀀스 길이 $n$이 표현 차원 $d$보다 작으면, 셀프 어텐션 계층은 순환 계층보다 더 빠릅니다. 이는 기계 번역의 최첨단 모델에서 가장 많이 사용되는 차원 $d$(예: word-piece, byte-pair 표현)와 같습니다. 매우 긴 시퀀스를 처리하는 계산 성능을 향상시키기 위해 셀프 어텐션은 출력 시퀀스의 각 위치를 중심으로 주변 입력 시퀀스를 근접한 이웃 크기 $r$만큼 제한합니다. 이렇게 하면 최대 통로 길이가 $O(n/r)$까지 증가합니다. 이 접근법은 추후 작업으로 계속 실험할 예정입니다.
 
-$k < n$의 kernel 너비를 가지는 단일 컨볼루션 계층은 입력과 출력의 위치의 모든 쌍을 연결하지않습니다. 그렇게 하려면 연속적인 kernel의 경우 $O(n/k)$의 컨볼루션 계층을 쌓아 확장된 컨볼루션에 $O(log_k(n))$을 쌓아야합니다. 결과적으로 네트워크의 어떤 두개의 위치 사이의 가징 긴 통로의 길이가 증가하게 됩니다. 일반적으로 $k$ 요소를 가지는 컨볼루션 계층은 순환 계층보다 비용이 높습니다. 그러나 분리가능한 컨볼루션은 고려할 수 있는 복잡성이 $O(k\cdotn\cdotd + n\cdotd^2)$으로 감소합니다. $k = n$일 때, 분리가능한 컨볼루션의 복잡성은 셀프어텐션 계층과 Point-wise FFN 계층의 결합과 동일해져 이 접근법을 모델에 사용했습니다.
+$k < n$의 kernel 너비를 가지는 단일 컨볼루션 계층은 입력과 출력의 위치의 모든 쌍을 연결하지않습니다. 그렇게 하려면 연속적인 kernel의 경우 $O(n/k)$의 컨볼루션 계층을 쌓아 확장된 컨볼루션에 $O(log_k(n))$을 쌓아야합니다. 결과적으로 네트워크의 어떤 두개의 위치 사이의 가징 긴 통로의 길이가 증가하게 됩니다. 일반적으로 $k$ 요소를 가지는 컨볼루션 계층은 순환 계층보다 비용이 높습니다. 그러나 분리가능한 컨볼루션은 고려할 수 있는 복잡성이 $O(k\cdot n\cdot d + n\cdot d^2)$으로 감소합니다. $k = n$일 때, 분리가능한 컨볼루션의 복잡성은 셀프어텐션 계층과 Point-wise FFN 계층의 결합과 동일해져 이 접근법을 모델에 사용했습니다.
 
 이점의 관점에서 셀프어텐션은 좀 더 설명가능한 모델을 만들 수 있습니다. 우리는 현재 토론되는 예제들의 어텐션 분포를 조사했습니다. 개별적인 어텐션 헤드는 다른 작업을 학습하는 것뿐만 아니라 문장의 구문과 문맥적 구조와 연관된 행동의 증거도 나타났습니다.
+
+쉽게 설명하면, 셀프어텐션은 동일한 문장 자체에서 가져온 Q와 K를 가지는 형태로 학습되고 이에 변형으로 교차 어텐션(Cross Attention)은 다른 언어나 모달리티로 Q와 K를 다르게 설정하는 형태(ex. Q=영어,K=한글, 어디에 연관되어 있을지 몰라 마스킹 적용 안함)입니다.
+
+
 
 ![4](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/ef8c0648-7a7a-4637-9718-885ca316011b){: .width="500"}
 _Figure 4 : 인코더의 self-attention에서 긴 길이의 의존성을 가지는 어텐션 매커니즘의 예시이다. 어텐션 헤드 중 많은 헤드는 동사 'making'과의 먼 의존성을 집중해서 처리하며, 'making...more difficult'라는 문구를 완성합니다. 여기서 보여진 주의는 단어 'making'에 대해서만 적용되었습니다. 다른 색상은 다른 헤드를 나타냅니다. 색상으로 보는 것이 가장 좋습니다._
@@ -209,20 +294,17 @@ _Figure 4 : 인코더의 self-attention에서 긴 길이의 의존성을 가지�
 ![5](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/00ec8699-fb2e-44a3-ac0a-fb5cb24f5b6c){: .width="300"}
 _Figure 5 : 많은 어텐션 헤드들이 문장의 구조와 연관된 행동을 보여주고 있다. 위의 인코더의 셀프어텐션으로 부터 얻은 두개의 다른 헤드에서 각 헤드는 다른 작업을 학습하는 것을 분명히 보여준다._
 
-> ## Ⅹ. Conclusion
-
-https://huggingface.co/docs/transformers/model_summary
-https://tutorials.pytorch.kr/beginner/transformer_tutorial.html
-
-attention mechanism이 Factor analysis로 다변량 통계기법으로 변수 간의 상관관계를 분석하여 관측된 데이터를 더 작은 수의 요인이나 구성 요소로 설명하려는데 사용함.
 
 
+> #### Update. 추가적인 설명(24.04.23)
+{: .prompt-info }
 
-> ## Ⅺ. 구현
+트랜스포머에 관한 영상으로 이해하기 쉽게 잘 되어있어 이해에 도움이 되었습니다.
 
-```python
+{% include embed/youtube.html id='eMlx5fFNoYc' %}
 
-```
+이러한 어텐션 매커니즘은 다변량 통계 관점에서 요인 분석(Factor analysis)을 통해 변수 간의 상관 관계를 분석하여 관측된 데이터를 더 적은 수의 요인이나 구성 요소로 설명할 수 있다고 합니다. 즉, 통계 공부도 열심히 하자!
+
 
 > ## Ⅻ. References
 
@@ -231,3 +313,5 @@ attention mechanism이 Factor analysis로 다변량 통계기법으로 변수 �
 3. [딥러닝을 이용한 자연어 처리 입문 - 트랜스포머](https://wikidocs.net/31379)
 4. ["차근차근 이해하는 Transformer(1)"](https://tigris-data-science.tistory.com/entry/%EC%B0%A8%EA%B7%BC%EC%B0%A8%EA%B7%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-Transformer1-Scaled-Dot-Product-Attention)
 5. [NLP - wikidocs](https://wikidocs.net/22893)
+6. [Huggingface Transformer](https://huggingface.co/docs/transformers/model_summary)
+7. [Tensorflow Transformer](https://www.tensorflow.org/text/tutorials/transformer?hl=ko#multi-head_attention)
