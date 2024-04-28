@@ -313,8 +313,8 @@ $$\hat{x} = \frac{x - E[x]}{\sqrt{Var[x] + \epsilon}}$$
 
 $$
 BN(Wu) = BN((aW)u)
-\frace{\partial BN((aW)u)}{\partial u} = \frace{\partial BN(Wu)}{\partial u}
-\frace{\partial BN((aW)u)}{\partial aW} = \frace{1}{a} \cdot \frac{\partial BN(Wu)}{\partial W}
+\frac{\partial BN((aW)u)}{\partial u} = \frac{\partial BN(Wu)}{\partial u}
+\frac{\partial BN((aW)u)}{\partial aW} = \frac{1}{a} \cdot \frac{\partial BN(Wu)}{\partial W}
 $$
 
 위에서 더 큰 가중치가 더 작은 그래디언트로 유도하며 매개변수의 성장을 안정화시킵니다. 

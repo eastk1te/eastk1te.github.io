@@ -68,28 +68,28 @@ _안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰
 <!-- [![badge](image)]() : 해당처럼 한번더 안씌우면 url error로 뜸, <a> 태그 안에 <img> 태그가 들어가서 양쪽다 url 입력해야하고 변수지정 방법은 안됨.-->
 
 
-[![badge](https://img.shields.io/badge/Linux-555555?style=for-the-badge&logo=Linux)]()
-[![badge](https://img.shields.io/badge/Windows-555555?style=for-the-badge&logo=windows&logoColor=blue)]()
-[![badge](https://img.shields.io/badge/Ubuntu-555555?style=for-the-badge&logo=Ubuntu)]()
+[![badge](https://img.shields.io/badge/Linux-555555?style=for-the-badge&logo=Linux)](https://github.com/eastk1te)
+[![badge](https://img.shields.io/badge/Windows-555555?style=for-the-badge&logo=windows&logoColor=blue)](https://github.com/eastk1te)
+[![badge](https://img.shields.io/badge/Ubuntu-555555?style=for-the-badge&logo=Ubuntu)](https://github.com/eastk1te)
 
-[![badge](https://img.shields.io/badge/Python-555555?&style=for-the-badge&logo=Python)]() 
-[![badge](https://img.shields.io/badge/R-555555?&style=for-the-badge&logo=R)]() 
-[![badge](https://img.shields.io/badge/Markdown-555555?&style=for-the-badge&logo=markdown)]() 
+[![badge](https://img.shields.io/badge/Python-555555?&style=for-the-badge&logo=Python)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/R-555555?&style=for-the-badge&logo=R)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/Markdown-555555?&style=for-the-badge&logo=markdown)](https://github.com/eastk1te) 
 
-[![badge](https://img.shields.io/badge/scikit--learn-555555?style=for-the-badge&logo=scikit-learn)]() 
-[![badge](https://img.shields.io/badge/Pytorch-555555?style=for-the-badge&logo=Pytorch)]() 
-[![badge](https://img.shields.io/badge/Tensorflow-555555?style=for-the-badge&logo=Tensorflow)]() 
+[![badge](https://img.shields.io/badge/scikit--learn-555555?style=for-the-badge&logo=scikit-learn)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/Pytorch-555555?style=for-the-badge&logo=Pytorch)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/Tensorflow-555555?style=for-the-badge&logo=Tensorflow)](https://github.com/eastk1te) 
 
-[![badge](https://img.shields.io/badge/PostgreSQL-555555?style=for-the-badge&logo=PostgreSQL)]() 
-[![badge](https://img.shields.io/badge/MySQL-555555?style=for-the-badge&logo=MySQL)]() 
+[![badge](https://img.shields.io/badge/PostgreSQL-555555?style=for-the-badge&logo=PostgreSQL)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/MySQL-555555?style=for-the-badge&logo=MySQL)](https://github.com/eastk1te) 
 
-[![badge](https://img.shields.io/badge/Git-555555.svg?style=for-the-badge&logo=Git)]() 
-[![badge](https://img.shields.io/badge/Pipenv-555555?style=for-the-badge&logo=pypi)]() 
-[![badge](https://img.shields.io/badge/Docker-555555?style=for-the-badge&logo=Docker)]() 
+[![badge](https://img.shields.io/badge/Git-555555.svg?style=for-the-badge&logo=Git)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/Pipenv-555555?style=for-the-badge&logo=pypi)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/Docker-555555?style=for-the-badge&logo=Docker)](https://github.com/eastk1te) 
 
-[![badge](https://img.shields.io/badge/GA4-555555?style=for-the-badge&logo=google-analytics)]() 
-[![badge](https://img.shields.io/badge/AWS-555555?style=for-the-badge&logo=amazon-aws&logoColor=orange)]() 
-[![badge](https://img.shields.io/badge/kubernetes-555555?style=for-the-badge&logo=kubernetes)]() 
+[![badge](https://img.shields.io/badge/GA4-555555?style=for-the-badge&logo=google-analytics)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/AWS-555555?style=for-the-badge&logo=amazon-aws&logoColor=orange)](https://github.com/eastk1te) 
+[![badge](https://img.shields.io/badge/kubernetes-555555?style=for-the-badge&logo=kubernetes)](https://github.com/eastk1te) 
 
 ---
 
@@ -128,12 +128,12 @@ _안녕하세요! :smile: <br> 지식을 탐구하는 것과 자연스럽게 몰
 
 <div align='center' style="display: flex; flex-wrap: wrap; align-items: stretch;">
   <div align='center' style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://mz-github-stats.vercel.app/api?username=eastk1te&show_icons=true&hide_border=true&theme=radical" alt=""></a>
-    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://mz-github-stats.vercel.app/api/top-langs/?username=eastk1te&show_icons=true&hide_border=true&layout=compact&langs_count=8&theme=radical" alt=""></a>
+    <a href="https://github.com/eastk1te"><img style="flex-grow: 1; max-height:30vh;" src="https://mz-github-stats.vercel.app/api?username=eastk1te&show_icons=true&hide_border=true&theme=radical" alt="https://github.com/eastk1te"></a>
+    <a href="https://github.com/eastk1te"><img style="flex-grow: 1; max-height:30vh;" src="https://mz-github-stats.vercel.app/api/top-langs/?username=eastk1te&show_icons=true&hide_border=true&layout=compact&langs_count=8&theme=radical" alt="https://github.com/eastk1te"></a>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="http://mazassumnida.wtf/api/generate_badge?boj=tjy2202" alt=""></a>
-    <a href=""><img style="flex-grow: 1; max-height:30vh;" src="https://github-readme-activity-graph.vercel.app/graph?username=eastk1te&theme=github-compact" alt=""></a>
+    <a href="https://github.com/eastk1te"><img style="flex-grow: 1; max-height:30vh;" src="https://mazassumnida.wtf/api/generate_badge?boj=tjy2202" alt="https://github.com/eastk1te"></a>
+    <a href="https://github.com/eastk1te"><img style="flex-grow: 1; max-height:30vh;" src="https://github-readme-activity-graph.vercel.app/graph?username=eastk1te&theme=github-compact" alt="https://github.com/eastk1te"></a>
   </div>
 </div>
 

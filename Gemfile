@@ -5,7 +5,8 @@ source "https://rubygems.org"
 gemspec
 
 group :test do
-  gem "html-proofer", "~> 3.18"
+  gem "html-proofer", "~> 3.0"
+  # encoding 문제로 인한 "~> 4.4"에서 다운그레이드
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -22,10 +23,7 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-# Lock jekyll-sass-converter to 2.x on Linux-musl
-if RUBY_PLATFORM =~ /linux-musl/
-  gem "jekyll-sass-converter", "~> 2.0"
-end
+# optional
 
 gem "jemoji"
 

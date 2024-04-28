@@ -341,8 +341,8 @@ class L1L2(Regularizer):
 
 
 1. [Everything You Need To Know About Regularization](https://towardsdatascience.com/everything-you-need-to-know-about-regularization-64734f240622)
-2. [Hoerl, A.E. and Kennard, R.W., 1970. Ridge regression: Biased estimation for nonorthogonal problems. Technometrics, 12(1), pp.55-67.](http://homepages.math.uic.edu/~lreyzin/papers/ridge.pdf)
-3. [Tibshirani, R., 1996. Regression shrinkage and selection via the lasso. Journal of the Royal Statistical Society: Series B (Methodological), 58(1), pp.267-288.](http://www-personal.umich.edu/~jizhu/jizhu/wuke/Tibs-JRSSB96.pdf)
+2. [Hoerl, A.E. and Kennard, R.W., 1970. Ridge regression: Biased estimation for nonorthogonal problems. Technometrics, 12(1), pp.55-67.](https://homepages.math.uic.edu/~lreyzin/papers/ridge.pdf)
+3. [Tibshirani, R., 1996. Regression shrinkage and selection via the lasso. Journal of the Royal Statistical Society: Series B (Methodological), 58(1), pp.267-288.](https://www-personal.umich.edu/~jizhu/jizhu/wuke/Tibs-JRSSB96.pdf)
 4. [H. Zou et al, "Regularization and variable selection via the elastic net", 2005](https://hastie.su.domains/Papers/elasticnet.pdf)
 5. [Expectation of dot product of Distance from β^ to β](https://math.stackexchange.com/questions/4358222/expectation-of-dot-product-of-distance-from-hat-beta-to-beta)
 6. [Ridge Regression Proof and Implementation](https://www.kaggle.com/code/residentmario/ridge-regression-proof-and-implementation)

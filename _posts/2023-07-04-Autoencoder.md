@@ -69,7 +69,7 @@ AutoEncoder는 비지도 학습 방법인 신경망 기반의 기계학습 모�
 비선형 차원 축소 기법 중 하나로 선형 차원축소기법의 PCA에서 사용하는 projection(투영)관점에서 설명하자면, 고차원 데이터가 저차원 곡면(manifold)으로 투영되어 더 간단한 구조를 갖는 것을 의미합니다. 해당 저차원 곡면은 원래 고차원 데이터 공간에서의 패턴, 구조 및 중요한 관계를 보존하려고 시도합니다. 
 
 Manifold(다양체)란?
-: 수학과 기하학에서 사용되는 용어로, 저차원 공간에서의 지역적 구조를 가지는 고차원 공간의 일부를 의미함. 즉, 고차원 공간의 subspace로 차원 축소를 가능케 함. 예시로 고차원에 공간에 한 점으로 이미지를 매핑시키면 유사한 이미지들이 모여 전체 공간의 부분집합을 이루는데 그것을 매니폴드(Manifold)라고 부른다.(ex. [Cloud Vision API Demo](http://vision-explorer.reactive.ai/#/galaxy?_k=n2cees), t-SNE )
+: 수학과 기하학에서 사용되는 용어로, 저차원 공간에서의 지역적 구조를 가지는 고차원 공간의 일부를 의미함. 즉, 고차원 공간의 subspace로 차원 축소를 가능케 함. 예시로 고차원에 공간에 한 점으로 이미지를 매핑시키면 유사한 이미지들이 모여 전체 공간의 부분집합을 이루는데 그것을 매니폴드(Manifold)라고 부른다.(ex. [Cloud Vision API Demo](https://vision-explorer.reactive.ai/#/galaxy?_k=n2cees), t-SNE )
 
 
 > #### Manifold Hypothesis(Assumption)
@@ -277,7 +277,7 @@ $$L(\theta) = R(x, g(f(x))) + \lambda \cdot C(x, h, J)$$
   종종 이 항을 $||J||^2_F$으로 표현하며, 여기서 $||\cdot||_F$는 프로베니우스 노름(Frobenius norm)입니다.
 
   ![CAE](https://github.com/eastk1te/eastk1te.github.io/assets/77319450/2483671d-6c4b-46a9-b74e-fa0c71b98e0d)
-  _출처 : http://dmqm.korea.ac.kr/uploads/seminar/DMQAseminar_210813.pdf_
+  _출처 : https://dmqm.korea.ac.kr/uploads/seminar/DMQAseminar_210813.pdf_
 
   대부분의 원본 데이터 입력 변화에 따른 방향에 대하여 표현이 지역적으로 불변하는 것을 장점으로 가지고 있다.
 
@@ -352,7 +352,7 @@ AAE는 다양한 종류의 데이터(이미지, 텍스트, 음성 등)에 사용
 4. [오토인코더 자료 모음](https://subinium.github.io/VAE-AE/#1-%EC%98%A4%ED%86%A0%EC%9D%B8%EC%BD%94%EB%8D%94%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83)
 5. [오토인코더의 모든것 - Naver Tech](https://d2.naver.com/news/0956269)
 6. ["Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion"](https://www.jmlr.org/papers/volume11/vincent10a/vincent10a.pdf)
-7. [CAE - DMQA open seminar](http://dmqm.korea.ac.kr/activity/seminar/330)
+7. [CAE - DMQA open seminar](https://dmqm.korea.ac.kr/activity/seminar/330)
 8. ["Contractive Auto-Encoders: Explicit Invariance During Feature Extraction"](https://icml.cc/2011/papers/455_icmlpaper.pdf)
 9.  [VAE - wikidocs](https://wikidocs.net/152474)
 10. ["Sparse Autoencoder", Andrew Ng](https://web.stanford.edu/class/cs294a/sparseAutoencoder.pdf)
